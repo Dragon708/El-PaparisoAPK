@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'Pages/Inicio.dart';
 import 'Pages/Principales/CatalogoShop.dart';
+import 'Pages/Principales/Inicio.dart';
 import 'Pages/Principales/Servicios.dart';
 import 'Pages/Principales/Ubicacion.dart';
 import 'Pages/homepage.dart';

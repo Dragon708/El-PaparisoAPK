@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paraisoperrunoapk/Pages/Principales/Inicio.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -71,7 +72,11 @@ class Homepage extends StatelessWidget {
                           color: Color.fromRGBO(175, 182, 206, 100),
                         ),
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              final ruta = MaterialPageRoute(
+                                  builder: ((context) => Inicio()));
+                              Navigator.push(context, ruta);
+                            },
                             child: Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Colors.white,

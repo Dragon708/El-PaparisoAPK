@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:paraisoperrunoapk/carrito/Carrito.dart';
+import 'package:provider/provider.dart';
 
 import 'Pages/Principales/CatalogoShop.dart';
 import 'Pages/Principales/Inicio.dart';
@@ -6,9 +8,10 @@ import 'Pages/Principales/Servicios.dart';
 import 'Pages/Principales/Ubicacion.dart';
 import 'Pages/homepage.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(ChangeNotifierProvider(
+      create: (context) => Carrito(),
+      child: MyApp(),
+    ));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -25,9 +28,9 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const Homepage(),
           'inicio': (context) => const Inicio(),
-          "Catalogo": (context) => Catalogo(),
-          "servicios": (context) => Servicios(),
-          "ubicacion": (context) => Ubicacion(),
+          "Catalogo": (context) => const Catalogo(),
+          "servicios": (context) => const Servicios(),
+          "ubicacion": (context) => const Ubicacion(),
         });
   }
 }

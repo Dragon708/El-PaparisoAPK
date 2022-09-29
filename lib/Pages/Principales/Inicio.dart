@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:paraisoperrunoapk/Pages/Internas/Info.dart';
 
 import 'package:paraisoperrunoapk/Widgets/drawer.dart';
 import 'package:provider/provider.dart';
 
 import '../../carrito/Carrito.dart';
-import '../Internas/Info.dart';
-import '../pruebajson/pageprueba.dart';
 
 class Inicio extends StatefulWidget {
   const Inicio({super.key});
@@ -39,7 +38,7 @@ class _InicioState extends State<Inicio> {
           backgroundColor: Colors.indigo.shade300,
         ),
         drawer: const barralateral(),
-        body: JsonParse(),
+        body: Info(),
       );
     });
   }

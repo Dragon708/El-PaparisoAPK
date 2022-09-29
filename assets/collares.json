@@ -1,20 +1,22 @@
-[
+ [
     {
-        "id": 1,
-        "nombre": "Collar",
-        "titulo": "Collar Con Cascabel Razas Pequeñas",
-        "imagen": "Collar3.png",
-        "precio": 380,
-        "ratings": 3
-    },
-    {
-         "id": 2,
-        "nombre": "Collar",
-        "titulo": "Collar  Razas Pequeñas",
-        "imagen": "Collar3.png",
-        "precio": 400,
-        "ratings": 3
-  }
+    "id": 1,
+    "nombre": "Collar",
+    "titulo": "Collar Con Cascabel Razas Pequeñas",
+    "imagen": "Collar3.png",
+    "precio": 380,
+    "ratings": 3
+},
+{
+    "id": 2,
+   "nombre": "Collar",
+   "titulo": "Collar  Razas Pequeñas",
+   "imagen": "Collar3.png",
+   "precio": 400,
+   "ratings": 3
+}
 ]
   
-  
+
+    
+   

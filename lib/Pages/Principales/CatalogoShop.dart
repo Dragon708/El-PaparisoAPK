@@ -1,8 +1,10 @@
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
-import '../../Models/Expansion.dart';
 import '../../Models/Productos.dart';
 import '../../carrito/Carrito.dart';
 import '../../carrito/Carritopage.dart';
@@ -570,11 +572,11 @@ class _CatalogoState extends State<Catalogo> {
                                             ),
                                           ],
                                         ),
-                                        Stack(
+                                        /*Stack(
                                           children: [
                                             Container(
                                               child: Text(
-                                                collarssss[0].descripcion,
+                                                Collares[index].descripcion,
                                                 textAlign: TextAlign.left,
                                                 style: TextStyle(
                                                     fontFamily: 'Patua One',
@@ -601,7 +603,7 @@ class _CatalogoState extends State<Catalogo> {
                                               ),
                                             ),
                                           ],
-                                        ),
+                                        ),*/
                                       ],
                                     ),
                                   ),
@@ -852,6 +854,33 @@ class _CatalogoState extends State<Catalogo> {
           });
     });
   }
+
+/*  Widget collares(BuildContext context) {
+    Future<List<Producto>> getdatos() async {
+      final response = await http.get(Uri.parse(
+          'https://fantastic-valkyrie-6f02c3.netlify.app/db/collares.json'));
+      var prod = json.decode(response.body);
+      return prod.map<Producto>(Producto.fromJson(prod)) as List<Producto>;
+    }
+
+    final Prueba = getdatos();
+
+    return Consumer<Carrito>(builder: (context, carrito, child) {
+      return FutureBuilder<List<Producto>>(
+          future: Prueba,
+          builder: (context, snapshot) {
+            return ListView.builder(
+                itemCount: snapshot.data?.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: ListTile(
+                      title: Text(snapshot.data![index].nombre),
+                    ),
+                  );
+                });
+          });
+    });
+  }*/
 
   Widget pecheras(BuildContext context) {
     return Consumer<Carrito>(builder: (context, carrito, child) {

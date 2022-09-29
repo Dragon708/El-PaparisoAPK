@@ -1,20 +1,3 @@
-import 'dart:convert';
-import 'dart:async';
-import 'package:http/http.dart' as http;
-
-Future<List<Producto>> getUsers() async {
-  String url = 'https://jsonplaceholder.typicode.com/users';
-  final response = await http.get(Uri.parse(url));
-  final jsonData = json.decode(response.body);
-  return jsonData.map<Producto>(Producto.fromJson).toList();
-}
-
-List<Producto> usersFromJson(String str) =>
-    List<Producto>.from(json.decode(str).map((x) => Producto.fromJson(x)));
-
-String usersToJson(List<Producto> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
 class Producto {
   final int id;
   final String nombre;

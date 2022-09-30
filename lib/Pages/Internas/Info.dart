@@ -3,6 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:paraisoperrunoapk/Pages/Principales/CatalogoShop.dart';
 import 'package:paraisoperrunoapk/Pages/Principales/Servicios.dart';
+import 'package:paraisoperrunoapk/Pages/Principales/veterinario.dart';
+
+import '../Principales/Entrenador.dart';
 
 class Info extends StatefulWidget {
   const Info({super.key});
@@ -84,9 +87,9 @@ class _InfoState extends State<Info> {
                     ]),
                     TableRow(children: [
                       _crearbotonesredondeados(context, Colors.redAccent,
-                          Icons.medical_services, 'VETERINARIO', Catalogo()),
+                          Icons.medical_services, 'VETERINARIO', Veterinario()),
                       _crearbotonesredondeados(context, Colors.orange,
-                          Icons.shopping_basket, 'ENTRENADOR', Catalogo())
+                          Icons.shopping_basket, 'ENTRENADOR', Entrenador())
                     ]),
                     TableRow(children: [
                       _crearbotonesredondeados(

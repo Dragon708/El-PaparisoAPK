@@ -405,7 +405,7 @@ class _CatalogoState extends State<Catalogo> {
       );
     });
   }
-
+/*
   Widget collares(BuildContext context) {
     return Consumer<Carrito>(builder: (context, carrito, child) {
       return ListView.builder(
@@ -853,34 +853,39 @@ class _CatalogoState extends State<Catalogo> {
             );
           });
     });
-  }
+  }*/
 
-/*  Widget collares(BuildContext context) {
+  Widget collares(BuildContext context) {
     Future<List<Producto>> getdatos() async {
       final response = await http.get(Uri.parse(
           'https://fantastic-valkyrie-6f02c3.netlify.app/db/collares.json'));
-      var prod = json.decode(response.body);
-      return prod.map<Producto>(Producto.fromJson(prod)) as List<Producto>;
+      var prods = jsonDecode(response.body) as List<dynamic>;
+      //print(prods.length);
+      return prods.map((e) => Producto.fromJson(e)).toList();
     }
-
-    final Prueba = getdatos();
 
     return Consumer<Carrito>(builder: (context, carrito, child) {
       return FutureBuilder<List<Producto>>(
-          future: Prueba,
+          future: getdatos(),
           builder: (context, snapshot) {
-            return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      title: Text(snapshot.data![index].nombre),
-                    ),
-                  );
-                });
+            return (snapshot.data == null)
+                ? CircularProgressIndicator(
+                    backgroundColor: Colors.blue,
+                  )
+                : ListView.builder(
+                    itemCount: snapshot.data?.length,
+                    itemBuilder: (context, i) {
+                      final sss = snapshot.data![i];
+                      return Card(
+                        child: ListTile(
+                          title: Text(sss.nombre),
+                          subtitle: Text(sss.titulo),
+                        ),
+                      );
+                    });
           });
     });
-  }*/
+  }
 
   Widget pecheras(BuildContext context) {
     return Consumer<Carrito>(builder: (context, carrito, child) {

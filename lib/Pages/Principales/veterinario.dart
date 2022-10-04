@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Veterinario extends StatelessWidget {
   const Veterinario({super.key});
@@ -29,26 +30,11 @@ class Veterinario extends StatelessWidget {
                 'VETERINARIO',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    letterSpacing: 2,
                     fontFamily: 'Patua One',
-                    fontSize: 30,
-                    foreground: Paint()
-                      ..color = Colors.black
-                      ..style = PaintingStyle.stroke
-                      ..strokeWidth = 4,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            Container(
-              child: Text(
-                'VETERINARIO',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    letterSpacing: 2,
-                    fontFamily: 'Patua One',
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+                    fontSize: 35,
+                    shadows: [
+                      Shadow(offset: Offset.fromDirection(1), blurRadius: 6)
+                    ]),
               ),
             ),
           ],
@@ -66,25 +52,25 @@ class Veterinario extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(300),
                 child: Container(
-                  color: Colors.red,
                   width: 200,
                   height: 200,
-                  child: Image(
+                  child: FadeInImage(
+                      placeholder: AssetImage('assets/cargando.gif'),
                       fit: BoxFit.fill,
-                      image: AssetImage('assets/images/cartel casa.jpg')),
+                      image: AssetImage('assets/images/yusnel.jpg')),
                 ),
               ),
             ),
             Container(
               padding: EdgeInsets.only(
-                top: 20,
+                top: 16,
               ),
               child: Stack(
                 children: [
                   Container(
-                    width: 300,
+                    width: 340,
                     child: Text(
-                      'DR. Yusnel Fernandez',
+                      'DR. Yusniel Martínez Bernal',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'Patua One',
@@ -97,9 +83,9 @@ class Veterinario extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 300,
+                    width: 340,
                     child: Text(
-                      'DR. Yusnel Fernandez',
+                      'DR. Yusniel Martínez Bernal',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'Patua One',
@@ -116,28 +102,25 @@ class Veterinario extends StatelessWidget {
                 top: 10,
               ),
               width: 280,
-              height: 150,
+              height: 140,
               child: Stack(
                 children: [
                   Container(
-                    width: 260,
+                    width: 280,
                     child: Text(
-                        ' Pequeña Descripción:         Doctor Medico Veterinario con Muchos Años de Experiencia. Servicios de Diagnostico, Tratamiento,Cirugia y Ultrasonido.',
+                        ' Descripción:                                  Doctor Medico Veterinario con Muchos Años de Experiencia. Servicios de Diagnostico, Tratamiento,Cirugia y Ultrasonido.',
                         textAlign: TextAlign.left,
                         style: textStyle),
                   ),
                   Container(
-                    width: 260,
+                    width: 280,
                     child: Text(
-                        ' Pequeña Descripción:         Doctor Medico Veterinario con Muchos Años de Experiencia. Servicios de Diagnostico, Tratamiento,Cirugia y Ultrasonido.',
+                        ' Descripción:                                  Doctor Medico Veterinario con Muchos Años de Experiencia. Servicios de Diagnostico, Tratamiento,Cirugia y Ultrasonido.',
                         textAlign: TextAlign.left,
                         style: textStyle2),
                   ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: 5,
             ),
             Container(
               width: 280,
@@ -254,7 +237,19 @@ class Veterinario extends StatelessWidget {
                   width: 280,
                   color: Color.fromRGBO(122, 132, 203, 1),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      //vincular wathsapp
+                      String celular = '5358505438';
+                      String mensaje =
+                          'Le Escribo Desde La Aplicacion De La Estetica Canina ya que Estoy Interesado En Atender Mi Mascota Con Usted';
+                      String url =
+                          'whatsapp://send?phone=$celular&text=$mensaje';
+                      if (await canLaunchUrlString(url)) {
+                        await launchUrlString(url);
+                      } else {
+                        throw ('No se Pudo Enviar El Mensaje de wathsapp');
+                      }
+                    },
                     child: Container(
                       child: Stack(
                         children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Entrenador extends StatelessWidget {
   const Entrenador({super.key});
@@ -64,27 +65,27 @@ class Entrenador extends StatelessWidget {
                 top: 20,
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(300),
+                borderRadius: BorderRadius.circular(40),
                 child: Container(
-                  color: Colors.red,
-                  width: 200,
+                  width: 300,
                   height: 200,
-                  child: Image(
+                  child: FadeInImage(
+                      placeholder: AssetImage('assets/cargando.gif'),
                       fit: BoxFit.fill,
-                      image: AssetImage('assets/images/cartel casa.jpg')),
+                      image: AssetImage('assets/images/entrenador.jpg')),
                 ),
               ),
             ),
             Container(
               padding: EdgeInsets.only(
-                top: 20,
+                top: 10,
               ),
               child: Stack(
                 children: [
                   Container(
                     width: 300,
                     child: Text(
-                      'DR. Yusnel Fernandez',
+                      'Maestro Victor',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'Patua One',
@@ -99,7 +100,7 @@ class Entrenador extends StatelessWidget {
                   Container(
                     width: 300,
                     child: Text(
-                      'DR. Yusnel Fernandez',
+                      'Maestro Victor',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'Patua One',
@@ -113,148 +114,50 @@ class Entrenador extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(
-                top: 10,
+                top: 5,
               ),
-              width: 280,
-              height: 150,
+              width: 350,
+              height: 315,
               child: Stack(
                 children: [
                   Container(
-                    width: 260,
+                    width: 350,
                     child: Text(
-                        ' Pequeña Descripción:         Doctor Medico Veterinario con Muchos Años de Experiencia. Servicios de Diagnostico, Tratamiento,Cirugia y Ultrasonido.',
+                        'DESCRIPCIÓN:  Con 35 años de experiencia en la crianza de perros, 20 como Adiestrador Canino; garantizamos la educación y el adiestramiento de su cachorro con la combinación de métodos didácticos y el reforzamiento positivo... buscamos la interrelación con el cliente dándole participación en las formas y métodos de adiestramiento...si es un dueño de mascota principiante  aportaremos conocimientos para el mejor desarrollo en la crianza de su cachorro y si tiene experiencia previa intercambiamos formas adecuadas de crianza...',
                         textAlign: TextAlign.left,
                         style: textStyle),
                   ),
                   Container(
-                    width: 260,
+                    width: 350,
                     child: Text(
-                        ' Pequeña Descripción:         Doctor Medico Veterinario con Muchos Años de Experiencia. Servicios de Diagnostico, Tratamiento,Cirugia y Ultrasonido.',
+                        'DESCRIPCIÓN:  Con 35 años de experiencia en la crianza de perros, 20 como Adiestrador Canino; garantizamos la educación y el adiestramiento de su cachorro con la combinación de métodos didácticos y el reforzamiento positivo... buscamos la interrelación con el cliente dándole participación en las formas y métodos de adiestramiento...si es un dueño de mascota principiante  aportaremos conocimientos para el mejor desarrollo en la crianza de su cachorro y si tiene experiencia previa intercambiamos formas adecuadas de crianza...',
                         textAlign: TextAlign.left,
                         style: textStyle2),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 5,
-            ),
-            Container(
-              width: 280,
-              height: 20,
-              child: Stack(
-                children: [
-                  Container(
-                    height: 20,
-                    width: 260,
-                    child: Text(
-                      'Horarios:',
-                      textAlign: TextAlign.center,
-                      style: textStyle,
-                    ),
-                  ),
-                  Container(
-                    height: 20,
-                    width: 260,
-                    child: Text(
-                      'Horarios:',
-                      textAlign: TextAlign.center,
-                      style: textStyle2,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 280,
-              height: 20,
-              child: Stack(
-                children: [
-                  Container(
-                    height: 20,
-                    width: 260,
-                    child: Text(
-                      'Lunes -- Sabado',
-                      textAlign: TextAlign.center,
-                      style: textStyle,
-                    ),
-                  ),
-                  Container(
-                    height: 20,
-                    width: 260,
-                    child: Text(
-                      'Lunes -- Sabado',
-                      textAlign: TextAlign.center,
-                      style: textStyle2,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 280,
-              height: 22,
-              child: Stack(
-                children: [
-                  Container(
-                    height: 22,
-                    width: 260,
-                    child: Text(
-                      '(8:00AM -- 5:00PM)',
-                      textAlign: TextAlign.center,
-                      style: textStyle,
-                    ),
-                  ),
-                  Container(
-                    height: 22,
-                    width: 260,
-                    child: Text(
-                      '(8:00AM -- 5:00PM)',
-                      textAlign: TextAlign.center,
-                      style: textStyle2,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Container(
-              width: 280,
-              height: 50,
-              child: Stack(
-                children: [
-                  Container(
-                    height: 50,
-                    width: 260,
-                    child: Text(
-                      'Direccion: Rodolfo Valderas #533 entre EstradaPalma y Rio',
-                      textAlign: TextAlign.center,
-                      style: textStyle,
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 260,
-                    child: Text(
-                      'Direccion: Rodolfo Valderas #533 entre EstradaPalma y Rio',
-                      textAlign: TextAlign.center,
-                      style: textStyle2,
-                    ),
-                  ),
-                ],
-              ),
-            ),
             Padding(
-              padding: const EdgeInsets.only(left: 10.0, top: 13),
+              padding: const EdgeInsets.only(left: 10.0, top: 4),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
                 child: Container(
                   width: 280,
                   color: Color.fromRGBO(122, 132, 203, 1),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      //vincular wathsapp
+                      String celular = '5353734868';
+                      String mensaje =
+                          'Le Escribo Desde La Aplicacion De La Estetica Canina ya que Estoy Interesado En Sus Servicios De Adiestramiento';
+                      String url =
+                          'whatsapp://send?phone=$celular&text=$mensaje';
+                      if (await canLaunchUrlString(url)) {
+                        await launchUrlString(url);
+                      } else {
+                        throw ('No se Pudo Enviar El Mensaje de wathsapp');
+                      }
+                    },
                     child: Container(
                       child: Stack(
                         children: [

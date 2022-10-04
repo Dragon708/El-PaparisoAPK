@@ -33,8 +33,8 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset(
-                              'assets/images/' + item.imagen,
+                            Image.network(
+                              item.imagen,
                               width: 100,
                               height: 100,
                               fit: BoxFit.contain,
@@ -57,8 +57,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                   ),
                                   Container(
                                     alignment: Alignment.centerLeft,
-                                    child: Text(
-                                        item.precio.toStringAsFixed(0) + ' CUP',
+                                    child: Text(item.precio.toString() + ' USD',
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
@@ -148,8 +147,8 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                             fontSize: 19)),
                                     Text(
                                         (item.precio * item.cantidad)
-                                                .toStringAsFixed(0) +
-                                            ' CUP',
+                                                .toString() +
+                                            ' USD',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         )),
@@ -167,18 +166,38 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
           ClipRRect(
             borderRadius: BorderRadius.circular(30),
             child: Container(
-              height: 50,
+              height: 80,
               color: Colors.indigo.shade300,
               child: Row(
                 children: [
-                  Container(
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 10),
-                          child: Text(
-                            'TOTAL:',
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            child: Text(
+                              '    SUBTOTAL:',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  shadows: [
+                                    Shadow(
+                                        offset: Offset.fromDirection(1, (3)),
+                                        blurRadius: 7)
+                                  ]),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            carrito.montoTotal.toString() + ' USD',
                             style: TextStyle(
+                                letterSpacing: 1,
                                 color: Colors.white,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -188,25 +207,78 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                       blurRadius: 7)
                                 ]),
                           ),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          carrito.montoTotal.toStringAsFixed(0) + ' CUP',
-                          style: TextStyle(
-                              letterSpacing: 1,
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              shadows: [
-                                Shadow(
-                                    offset: Offset.fromDirection(1, (3)),
-                                    blurRadius: 7)
-                              ]),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            child: Text(
+                              '      DOMICILIO:',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  shadows: [
+                                    Shadow(
+                                        offset: Offset.fromDirection(1, (3)),
+                                        blurRadius: 7)
+                                  ]),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            '0.25 USD',
+                            style: TextStyle(
+                                letterSpacing: 1,
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                      offset: Offset.fromDirection(1, (3)),
+                                      blurRadius: 7)
+                                ]),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            child: Text(
+                              '      TOTAL        :',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  shadows: [
+                                    Shadow(
+                                        offset: Offset.fromDirection(1, (3)),
+                                        blurRadius: 7)
+                                  ]),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            (carrito.montoTotal + 0.25).toString() + ' USD',
+                            style: TextStyle(
+                                letterSpacing: 1,
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                      offset: Offset.fromDirection(1, (3)),
+                                      blurRadius: 7)
+                                ]),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   Expanded(child: Container()),
                   Container(
@@ -222,17 +294,16 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                   ' Precio SubTotal ' +
                                   value.precio.toString() +
                                   ' Precio Total ' +
-                                  (value.cantidad * value.precio)
-                                      .toStringAsFixed(0) +
+                                  (value.cantidad * value.precio).toString() +
                                   "\n********************\n";
                             });
                             pedido = '$pedido' +
                                 ' Total ' +
-                                carrito.montoTotal.toStringAsFixed(0) +
+                                carrito.montoTotal.toString() +
                                 '\n********************\n';
                             pedido = '$pedido' +
                                 ' Total Con Domicilio ' +
-                                (carrito.montoTotal + 50).toStringAsFixed(0) +
+                                (carrito.montoTotal + 50).toString() +
                                 '\n********************\n';
                             //vincular wathsapp
                             String celular = '5355179245';

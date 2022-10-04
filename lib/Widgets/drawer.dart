@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:paraisoperrunoapk/Pages/Principales/CatalogoShop.dart';
+import 'package:paraisoperrunoapk/Pages/Principales/Servicios.dart';
+import 'package:paraisoperrunoapk/Pages/Principales/Ubicacion.dart';
 
 class barralateral extends StatelessWidget {
   const barralateral({
@@ -55,7 +58,11 @@ class barralateral extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ]),
-            onTap: () {},
+            onTap: () {
+              final routes =
+                  MaterialPageRoute(builder: (context) => Catalogo());
+              Navigator.push(context, routes);
+            },
           ),
           SizedBox(
             height: 20,
@@ -93,7 +100,11 @@ class barralateral extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ]),
-            onTap: () {},
+            onTap: () {
+              final routes =
+                  MaterialPageRoute(builder: (context) => Servicios());
+              Navigator.push(context, routes);
+            },
           ),
           SizedBox(
             height: 20,
@@ -131,7 +142,11 @@ class barralateral extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ]),
-            onTap: () {},
+            onTap: () {
+              final routes =
+                  MaterialPageRoute(builder: (context) => Ubicacion());
+              Navigator.push(context, routes);
+            },
           ),
           Expanded(
               child: Container(

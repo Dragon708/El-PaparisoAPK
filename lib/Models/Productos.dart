@@ -5,6 +5,7 @@ class Producto {
   final String imagen;
   final double precio;
   final double ratings;
+  final String descripcion;
 
   const Producto(
       {required this.id,
@@ -12,7 +13,8 @@ class Producto {
       required this.titulo,
       required this.imagen,
       required this.precio,
-      required this.ratings});
+      required this.ratings,
+      required this.descripcion});
 
   factory Producto.fromJson(Map<String, dynamic> json) => Producto(
         id: json['id'],
@@ -21,6 +23,7 @@ class Producto {
         imagen: json['imagen'],
         precio: json['precio'],
         ratings: json['ratings'],
+        descripcion: json['descripcion'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -30,10 +33,11 @@ class Producto {
         'imagen': imagen,
         'precio': precio,
         'rating': ratings,
+        'descripcion': descripcion,
       };
 }
 
-final Collares = [
+/*final Collares = [
   Producto(
       id: 1,
       nombre: 'Collar',
@@ -132,7 +136,7 @@ final Collares = [
       imagen: 'Collar14.jpg',
       precio: 700,
       ratings: 3.5),
-];
+];*/
 
 final Pecheras = [
   Producto(
@@ -141,28 +145,32 @@ final Pecheras = [
       titulo: 'Pechera Razas Pequeñas',
       imagen: 'pecherapequena copia.png',
       precio: 700,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 16,
       nombre: 'Pechera',
       titulo: 'Pechera Gruesa Razas Pequeñas',
       imagen: 'pechera4.jpg',
       precio: 1000,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 17,
       nombre: 'Pechera',
       titulo: 'Pechera Arcoiris Razas Pequeñas',
       imagen: 'pecheramediana copia.png',
       precio: 1500,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 18,
       nombre: 'Pechera',
       titulo: 'Pechera Gruesa Razas Grandes',
       imagen: 'Sin título-1.jpg',
       precio: 2000,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
 ];
 
 final Juguetes = [
@@ -172,42 +180,48 @@ final Juguetes = [
       titulo: 'Juguete Chillón Erizo',
       imagen: 'juguete2.png',
       precio: 400,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 20,
       nombre: 'Juguete',
       titulo: 'Juguete Chillón Estrella',
       imagen: 'juguete1.png',
       precio: 400,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 21,
       nombre: 'Juguete',
       titulo: 'Juguete Chillon Mando',
       imagen: 'mando.png',
       precio: 450,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 22,
       nombre: 'Juguete',
       titulo: 'Juguete Chillón Hueso',
       imagen: 'hueso.png',
       precio: 500,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 23,
       nombre: 'Juguete',
       titulo: 'Juguete Chillón Chuleta',
       imagen: 'bistec.png',
       precio: 500,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 24,
       nombre: 'Juguete',
       titulo: 'Juguete Super Resistente',
       imagen: 'juguete5.png',
       precio: 900,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
 ];
 
 final Ropa = [
@@ -217,42 +231,48 @@ final Ropa = [
       titulo: 'Pareja De Lazos',
       imagen: 'lazos.jpg',
       precio: 100,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 26,
       nombre: 'Ropa',
       titulo: 'Sueter Azul Razas Pequeñas',
       imagen: 'sueterazul.png',
       precio: 400,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 27,
       nombre: 'Ropa',
       titulo: 'Sueter Negro Razas Pequeñas',
       imagen: 'sueternegro.png',
       precio: 400,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 28,
       nombre: 'Ropa',
       titulo: 'Calcetines Con Fondo Engomado Para Perros y Gatos',
       imagen: 'medias.jpg',
       precio: 400,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 29,
       nombre: 'Ropa',
       titulo: 'Pulover Rosado Razas Pequeñas',
       imagen: 'rosado.png',
       precio: 550,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 30,
       nombre: 'Ropa',
       titulo: 'Pulover Azul Razas Pequeñas',
       imagen: 'azul.png',
       precio: 550,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
 ];
 
 final Comestibles = [
@@ -262,21 +282,24 @@ final Comestibles = [
       titulo: 'Palitos De Carnaza Molida Con Vitaminas',
       imagen: 'carnaza1.jpg',
       precio: 60,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 32,
       nombre: 'Carnaza',
       titulo: 'Carnaza Hueso Comestible Pequeña',
       imagen: 'carnaza2.jpg',
       precio: 100,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 33,
       nombre: 'Carnaza',
       titulo: 'Carnaza Grande Con Forma De Dónuts',
       imagen: 'carnaza3.jpg',
       precio: 400,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
 ];
 
 final Higiene = [
@@ -286,61 +309,70 @@ final Higiene = [
       titulo: 'Multivitaminico (Calcio,D2,B,A)',
       imagen: 'pastillas.png',
       precio: 20,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 35,
       nombre: 'Antiparasitario',
       titulo: 'Tabletas De Desparacitacion PET-MAX(Adultos)',
       imagen: 'desparacitacion.png',
       precio: 150,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 36,
       nombre: 'Utensilio',
       titulo: 'Plato Plastico Pequeño',
       imagen: 'plato.png',
       precio: 200,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 37,
       nombre: 'Cepillo Dental',
       titulo: 'Cepillo De Dientes Doble Para Perros',
       imagen: 'cepillodientes.jpg',
       precio: 250,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 38,
       nombre: 'Collar Antipulgas',
       titulo: 'Collar Antipulgas Para Razas Pequeñas',
       imagen: 'collaranti.png',
       precio: 450,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 39,
       nombre: 'Peine',
       titulo: 'Peine Para Perros',
       imagen: 'peines.jpg',
       precio: 500,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 40,
       nombre: 'Cepillo',
       titulo: 'Cepillo Doble Pequeño Para Perros',
       imagen: 'cepillo.jpg',
       precio: 650,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 41,
       nombre: 'Cepillo',
       titulo: 'Cepillo Doble Grande Para Perros',
       imagen: 'cepillo.jpg',
       precio: 800,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
   Producto(
       id: 42,
       nombre: 'Cepillo',
       titulo: 'Cepillo Almoaza',
       imagen: 'almoaza.jpg',
       precio: 800,
-      ratings: 3.5),
+      ratings: 3.5,
+      descripcion: 's'),
 ];

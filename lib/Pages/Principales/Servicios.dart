@@ -191,19 +191,7 @@ class Servicios extends StatelessWidget {
                                       ],
                                     ),
                                     TextButton(
-                                        onPressed: () async {
-                                          String pedido =
-                                              'Deseo Reservar Un Turno  Para La Estetica';
-                                          String celular = '5355179245';
-                                          String mensaje = pedido;
-                                          String url =
-                                              'whatsapp://send?phone=$celular&text=$mensaje';
-                                          if (await canLaunchUrlString(url)) {
-                                            await launchUrlString(url);
-                                          } else {
-                                            throw ('No se Pudo Enviar El Mensaje de wathsapp');
-                                          }
-                                        },
+                                        onPressed: wathsapp,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(30),
@@ -297,19 +285,7 @@ class Servicios extends StatelessWidget {
                                       ],
                                     ),
                                     TextButton(
-                                        onPressed: () async {
-                                          String pedido =
-                                              'Deseo Reservar Un Turno  Para La Estetica';
-                                          String celular = '5355179245';
-                                          String mensaje = pedido;
-                                          String url =
-                                              'whatsapp://send?phone=$celular&text=$mensaje';
-                                          if (await canLaunchUrlString(url)) {
-                                            await launchUrlString(url);
-                                          } else {
-                                            throw ('No se Pudo Enviar El Mensaje de wathsapp');
-                                          }
-                                        },
+                                        onPressed: wathsapp,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(30),
@@ -410,19 +386,7 @@ class Servicios extends StatelessWidget {
                                       height: 20,
                                     ),
                                     TextButton(
-                                        onPressed: () async {
-                                          String pedido =
-                                              'Deseo Reservar Un Turno  Para La Estetica';
-                                          String celular = '5355179245';
-                                          String mensaje = pedido;
-                                          String url =
-                                              'whatsapp://send?phone=$celular&text=$mensaje';
-                                          if (await canLaunchUrlString(url)) {
-                                            await launchUrlString(url);
-                                          } else {
-                                            throw ('No se Pudo Enviar El Mensaje de wathsapp');
-                                          }
-                                        },
+                                        onPressed: wathsapp,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(30),
@@ -522,19 +486,7 @@ class Servicios extends StatelessWidget {
                                       height: 20,
                                     ),
                                     TextButton(
-                                        onPressed: () async {
-                                          String pedido =
-                                              'Deseo Reservar Un Turno  Para La Estetica';
-                                          String celular = '5355179245';
-                                          String mensaje = pedido;
-                                          String url =
-                                              'whatsapp://send?phone=$celular&text=$mensaje';
-                                          if (await canLaunchUrlString(url)) {
-                                            await launchUrlString(url);
-                                          } else {
-                                            throw ('No se Pudo Enviar El Mensaje de wathsapp');
-                                          }
-                                        },
+                                        onPressed: wathsapp,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(30),
@@ -634,19 +586,7 @@ class Servicios extends StatelessWidget {
                                       height: 30,
                                     ),
                                     TextButton(
-                                        onPressed: () async {
-                                          String pedido =
-                                              'Deseo Reservar Un Turno  Para La Estetica';
-                                          String celular = '5355179245';
-                                          String mensaje = pedido;
-                                          String url =
-                                              'whatsapp://send?phone=$celular&text=$mensaje';
-                                          if (await canLaunchUrlString(url)) {
-                                            await launchUrlString(url);
-                                          } else {
-                                            throw ('No se Pudo Enviar El Mensaje de wathsapp');
-                                          }
-                                        },
+                                        onPressed: wathsapp,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(30),
@@ -747,19 +687,7 @@ class Servicios extends StatelessWidget {
                                       height: 20,
                                     ),
                                     TextButton(
-                                        onPressed: () async {
-                                          String pedido =
-                                              'Deseo Reservar Un Turno  Para La Estetica';
-                                          String celular = '5355179245';
-                                          String mensaje = pedido;
-                                          String url =
-                                              'whatsapp://send?phone=$celular&text=$mensaje';
-                                          if (await canLaunchUrlString(url)) {
-                                            await launchUrlString(url);
-                                          } else {
-                                            throw ('No se Pudo Enviar El Mensaje de wathsapp');
-                                          }
-                                        },
+                                        onPressed: wathsapp,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(30),
@@ -796,5 +724,17 @@ class Servicios extends StatelessWidget {
             FloatingActionButtonLocation.miniCenterDocked,
       );
     });
+  }
+
+  void wathsapp() async {
+    String pedido = 'Deseo Reservar Un Turno  Para La Estetica';
+    String celular = '5355179245';
+    String mensaje = pedido;
+    String url = 'whatsapp://send?phone=$celular&text=$mensaje';
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      throw ('No se Pudo Enviar El Mensaje de wathsapp');
+    }
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paraisoperrunoapk/Pages/Principales/Inicio.dart';
 
+import 'Principales/pageviewinicio.dart';
+
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
@@ -61,12 +63,13 @@ class Homepage extends StatelessWidget {
                       image: AssetImage('assets/images/paticas.png')),
                 )),
             Positioned(
-                left: 147,
+                left: 117,
                 top: 320,
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(800),
                     child: Container(
-                        width: 60,
+                        padding: EdgeInsets.symmetric(horizontal: 4),
+                        width: 141,
                         height: 60,
                         decoration: BoxDecoration(
                           color: Color.fromRGBO(175, 182, 206, 100),
@@ -77,9 +80,36 @@ class Homepage extends StatelessWidget {
                                   builder: ((context) => Inicio()));
                               Navigator.push(context, ruta);
                             },
-                            child: Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              color: Colors.white,
+                            child: Row(
+                              children: [
+                                Stack(
+                                  children: [
+                                    Text(
+                                      'Bienvenidos',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          foreground: Paint()
+                                            ..color = Colors.black
+                                            ..style = PaintingStyle.stroke
+                                            ..strokeWidth = 3),
+                                    ),
+                                    Text(
+                                      'Bienvenidos',
+                                      style: TextStyle(
+                                          fontSize: 17, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  color: Colors.white,
+                                  shadows: [
+                                    Shadow(
+                                        offset: Offset.fromDirection(2),
+                                        blurRadius: 7)
+                                  ],
+                                ),
+                              ],
                             ))))),
             Positioned(
                 left: 60,

@@ -5,7 +5,11 @@ import 'package:paraisoperrunoapk/Pages/Principales/CatalogoShop.dart';
 import 'package:paraisoperrunoapk/Pages/Principales/Servicios.dart';
 import 'package:paraisoperrunoapk/Pages/Principales/veterinario.dart';
 
+import '../Principales/Acuario.dart';
 import '../Principales/Entrenador.dart';
+import '../Principales/Fumigador.dart';
+import '../Principales/Guarderia.dart';
+import '../Principales/Ubicacion.dart';
 
 class Info extends StatefulWidget {
   const Info({super.key});
@@ -81,25 +85,33 @@ class _InfoState extends State<Info> {
                     ]),
                     TableRow(children: [
                       _crearbotonesredondeados(context, Colors.green,
-                          Icons.contact_phone, 'GUARDERIA', Catalogo()),
-                      _crearbotonesredondeados(context, Colors.tealAccent,
-                          Icons.shopping_basket, 'ACUARIO', Catalogo())
+                          Icons.house_rounded, 'GUARDERIA', Guarderia()),
+                      _crearbotonesredondeados(
+                          context,
+                          Color.fromARGB(219, 100, 255, 219),
+                          Icons.water_sharp,
+                          'ACUARIO',
+                          Acuario())
                     ]),
                     TableRow(children: [
                       _crearbotonesredondeados(context, Colors.redAccent,
                           Icons.medical_services, 'VETERINARIO', Veterinario()),
                       _crearbotonesredondeados(context, Colors.orange,
-                          Icons.shopping_basket, 'ENTRENADOR', Entrenador())
+                          Icons.pets_rounded, 'ENTRENADOR', Entrenador())
                     ]),
                     TableRow(children: [
                       _crearbotonesredondeados(
                           context,
-                          Color.fromARGB(255, 255, 59, 196),
-                          Icons.shopify,
+                          Color.fromARGB(189, 59, 232, 255),
+                          Icons.location_on_rounded,
                           'UBICACIÓN',
-                          Catalogo()),
-                      _crearbotonesredondeados(context, Colors.blueAccent,
-                          Icons.bathtub, 'INFORMACION UTIL', Servicios())
+                          Ubicacion()),
+                      _crearbotonesredondeados(
+                          context,
+                          Colors.purpleAccent,
+                          Icons.bug_report_rounded,
+                          'Control De Plagas',
+                          Fumigador())
                     ]),
                   ],
                 ),
@@ -175,52 +187,6 @@ Widget _titulo() {
     ),
   );
 }
-
-/*
-Widget barrainferior(BuildContext context) {
-  return Theme(
-    data: Theme.of(context).copyWith(),
-    child: Container(
-      child: BottomNavigationBar(
-          backgroundColor: Colors.blueAccent,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white,
-          items: [
-            BottomNavigationBarItem(
-                label: 'Home',
-                icon: IconButton(
-                    icon: Icon(Icons.home),
-                    iconSize: 24.0,
-                    onPressed: () {
-                      final routes =
-                          MaterialPageRoute(builder: (context) => Info());
-                      Navigator.push(context, routes);
-                    })),
-            BottomNavigationBarItem(
-                label: 'Catalogo',
-                icon: IconButton(
-                    icon: Icon(Icons.shopify),
-                    iconSize: 24.0,
-                    onPressed: () {
-                      final routes =
-                          MaterialPageRoute(builder: (context) => Catalogo());
-                      Navigator.push(context, routes);
-                    })),
-            BottomNavigationBarItem(
-                label: 'Servicios',
-                icon: IconButton(
-                    icon: Icon(Icons.bathtub),
-                    iconSize: 24.0,
-                    onPressed: () {
-                      final routes =
-                          MaterialPageRoute(builder: (context) => Servicios());
-                      Navigator.push(context, routes);
-                    }))
-          ]),
-    ),
-  );
-}
-*/
 
 Widget _crearbotonesredondeados(BuildContext context, Color color,
     IconData icono, String texto, Widget pagina) {

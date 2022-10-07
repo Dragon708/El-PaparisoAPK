@@ -14,101 +14,42 @@ class Servicios extends StatelessWidget {
     final tamano = MediaQuery.of(context).size;
     return Consumer<Carrito>(builder: (context, carrito, child) {
       return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.indigo.shade300,
+          title: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+            Text(
+              'EL PARAISO PERRUNO',
+              style: TextStyle(
+                  shadows: [
+                    Shadow(offset: Offset.fromDirection(1, (4)), blurRadius: 6)
+                  ],
+                  color: Colors.white,
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'De Deily Y Laylah',
+              style: TextStyle(
+                  shadows: [
+                    Shadow(offset: Offset.fromDirection(1, (4)), blurRadius: 6)
+                  ],
+                  color: Colors.white,
+                  fontSize: 10.0,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 4,
+            )
+          ]),
+        ),
         body: Column(
           children: [
-            Column(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  width: tamano.width * 1.0,
-                  height: 80,
-                  decoration: BoxDecoration(boxShadow: [
-                    BoxShadow(
-                        offset: Offset.fromDirection(1, (4)), blurRadius: 6)
-                  ], color: Colors.indigo.shade300),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(top: 20),
-                        child: IconButton(
-                            alignment: Alignment.bottomCenter,
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_rounded,
-                              color: Colors.white,
-                              size: 25,
-                              shadows: [
-                                Shadow(
-                                    offset: Offset.fromDirection(1, (4)),
-                                    blurRadius: 6)
-                              ],
-                            )),
-                      ),
-                      Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'EL PARAISO PERRUNO',
-                              style: TextStyle(
-                                  shadows: [
-                                    Shadow(
-                                        offset: Offset.fromDirection(1, (4)),
-                                        blurRadius: 6)
-                                  ],
-                                  color: Colors.white,
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'De Deily Y Laylah',
-                              style: TextStyle(
-                                  shadows: [
-                                    Shadow(
-                                        offset: Offset.fromDirection(1, (4)),
-                                        blurRadius: 6)
-                                  ],
-                                  color: Colors.white,
-                                  fontSize: 10.0,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              height: 4,
-                            )
-                          ]),
-                      Container(
-                          padding: EdgeInsets.only(top: 30, left: 5),
-                          child: Badge(
-                              padding: EdgeInsets.all(7),
-                              badgeContent: Text(carrito.numeroItem.toString()),
-                              child: IconButton(
-                                  padding: EdgeInsets.all(4),
-                                  onPressed: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (BuildContext) =>
-                                                CarritoPantalla()));
-                                  },
-                                  icon: Icon(
-                                    Icons.shopping_cart_checkout,
-                                    shadows: [
-                                      Shadow(
-                                          offset: Offset.fromDirection(1, (4)),
-                                          blurRadius: 6)
-                                    ],
-                                    size: 35,
-                                    color: Colors.white,
-                                  )))),
-                    ],
-                  ),
-                ),
-              ],
-            ),
             Flexible(
               child: Container(
                 color: Color.fromARGB(255, 219, 217, 228),
                 child: ListView(
+                  padding: EdgeInsets.only(top: 3),
                   children: [
                     Column(
                       children: [
@@ -304,18 +245,18 @@ class Servicios extends StatelessWidget {
                               ],
                             )),
                         Container(
-                            height: 160,
+                            height: 140,
                             child: Row(
                               children: [
                                 Image(
                                   alignment: Alignment.topCenter,
                                   width: 150,
-                                  height: 150,
+                                  height: 140,
                                   image:
                                       AssetImage('assets/images/dientes.png'),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 10, top: 40),
+                                  padding: EdgeInsets.only(left: 10, top: 20),
                                   child: Column(children: [
                                     Stack(
                                       children: [
@@ -383,7 +324,7 @@ class Servicios extends StatelessWidget {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 20,
+                                      height: 10,
                                     ),
                                     TextButton(
                                         onPressed: wathsapp,
@@ -405,17 +346,17 @@ class Servicios extends StatelessWidget {
                               ],
                             )),
                         Container(
-                            height: 160,
+                            height: 130,
                             child: Row(
                               children: [
                                 Image(
                                   alignment: Alignment.topCenter,
                                   width: 150,
-                                  height: 150,
+                                  height: 130,
                                   image: AssetImage('assets/images/unas.png'),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 10, top: 20),
+                                  padding: EdgeInsets.only(left: 10, top: 10),
                                   child: Column(children: [
                                     Stack(
                                       children: [
@@ -451,7 +392,7 @@ class Servicios extends StatelessWidget {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 10,
+                                      height: 5,
                                     ),
                                     Stack(
                                       children: [
@@ -483,7 +424,7 @@ class Servicios extends StatelessWidget {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: 20,
+                                      height: 10,
                                     ),
                                     TextButton(
                                         onPressed: wathsapp,
@@ -727,7 +668,7 @@ class Servicios extends StatelessWidget {
   }
 
   void wathsapp() async {
-    String pedido = 'Deseo Reservar Un Turno  Para La Estetica';
+    String pedido = 'Deseo Reservar Un Turno Para La Estetica';
     String celular = '5355179245';
     String mensaje = pedido;
     String url = 'whatsapp://send?phone=$celular&text=$mensaje';

@@ -74,12 +74,22 @@ class _PageViewInicioState extends State<PageViewInicio> {
                     MaterialPageRoute(builder: ((context) => Inicio()));
                 Navigator.push(context, ruta);
               },
-              child: const Text(
-                'Bienvenido',
-                style: TextStyle(
-                    fontFamily: 'Paprika',
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Bienvenido',
+                    style: TextStyle(
+                        fontFamily: 'Paprika',
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Container(
+                      child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 40,
+                  ))
+                ],
               ))
           : Container(
               color: Colors.indigo.shade300,
@@ -220,7 +230,7 @@ class _PageViewInicioState extends State<PageViewInicio> {
             Image(image: AssetImage('assets/images/dibujobano.png')),
             Stack(
               children: [
-                Text(
+                /*  Text(
                   'Estetica Canina',
                   style: TextStyle(
                     fontSize: 28,
@@ -232,7 +242,7 @@ class _PageViewInicioState extends State<PageViewInicio> {
                       ..style = PaintingStyle.stroke
                       ..strokeWidth = 2,
                   ),
-                ),
+                ),*/
                 Text(
                   'Estetica Canina',
                   style: TextStyle(
@@ -252,7 +262,7 @@ class _PageViewInicioState extends State<PageViewInicio> {
               width: 310,
               child: Stack(
                 children: [
-                  Text(
+                  /*Text(
                     'En Nuestro Local Resivira Todo Tipos De Servicios Encaminado A La Higiene y Belleza De Mano De Profesionales',
                     style: TextStyle(
                         letterSpacing: 1,
@@ -264,7 +274,7 @@ class _PageViewInicioState extends State<PageViewInicio> {
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Permanent Marker'),
                     textAlign: TextAlign.center,
-                  ),
+                  ),*/
                   Text(
                     'En Nuestro Local Resivira Todo Tipos De Servicios Encaminado A La Higiene y Belleza De Mano De Profesionales',
                     style: TextStyle(
@@ -438,7 +448,7 @@ class _PageViewInicioState extends State<PageViewInicio> {
 
   Widget paginacontrol() {
     return Container(
-      color: Color.fromARGB(143, 124, 4, 203),
+      color: Colors.blue.shade400,
       child: Center(
         child: Column(
           children: [

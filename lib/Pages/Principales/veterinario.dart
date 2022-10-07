@@ -241,7 +241,7 @@ class Veterinario extends StatelessWidget {
                       //vincular wathsapp
                       String celular = '5358505438';
                       String mensaje =
-                          'Le Escribo Desde La Aplicacion De La Estetica Canina ya que Estoy Interesado En Atender Mi Mascota Con Usted';
+                          'Le Escribo Desde La Aplicacion El Paraiso Perruno ya que Estoy Interesado En Atender Mi Mascota Con Usted';
                       String url =
                           'whatsapp://send?phone=$celular&text=$mensaje';
                       if (await canLaunchUrlString(url)) {

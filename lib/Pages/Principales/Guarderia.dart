@@ -118,7 +118,7 @@ class Guarderia extends StatelessWidget {
                     //vincular wathsapp
                     String celular = '5355179245';
                     String mensaje =
-                        'Le Escribo Desde La Aplicacion De La Estetica Canina ya que Estoy Interesado En Sus Servicios De Guarderia';
+                        'Le Escribo Desde La Aplicacion El Paraiso Perruno ya que Estoy Interesado En Sus Servicios De Guarderia';
                     String url = 'whatsapp://send?phone=$celular&text=$mensaje';
                     if (await canLaunchUrlString(url)) {
                       await launchUrlString(url);

@@ -149,7 +149,7 @@ class Entrenador extends StatelessWidget {
                       //vincular wathsapp
                       String celular = '5353734868';
                       String mensaje =
-                          'Le Escribo Desde La Aplicacion De La Estetica Canina ya que Estoy Interesado En Sus Servicios De Adiestramiento';
+                          'Le Escribo Desde La Aplicacion El Paraiso Perruno ya que Estoy Interesado En Sus Servicios De Adiestramiento';
                       String url =
                           'whatsapp://send?phone=$celular&text=$mensaje';
                       if (await canLaunchUrlString(url)) {

@@ -37,347 +37,313 @@ class _CatalogoState extends State<Catalogo> {
     ];
     final tamano = MediaQuery.of(context).size;
 
-    void searchproduct(String value) {
-      final sugerencia = articulos.where((articu) {
-        final articuTitulo = articu.titulo.toLowerCase();
-        final input = value.toLowerCase();
-        return articuTitulo.contains(input);
-      }).toList();
-      setState(() => articulos = sugerencia);
-    }
-
     return Consumer<Carrito>(builder: (context, carrito, child) {
       return Scaffold(
-        body: Container(
-            height: 1400,
-            padding: EdgeInsets.only(top: 15),
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 219, 217, 228),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(35),
-                    topRight: Radius.circular(35))),
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      width: tamano.width * 1.0,
-                      height: 70,
-                      decoration: BoxDecoration(boxShadow: [
-                        BoxShadow(
-                            offset: Offset.fromDirection(1, (4)), blurRadius: 6)
-                      ], color: Colors.indigo.shade300),
-                      child: Row(
-                        children: [
-                          IconButton(
-                              alignment: Alignment.bottomLeft,
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_rounded,
-                                color: Colors.white,
-                                size: 25,
-                                shadows: [
-                                  Shadow(
-                                      offset: Offset.fromDirection(1, (4)),
-                                      blurRadius: 6)
-                                ],
-                              )),
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'EL PARAISO PERRUNO',
-                                  style: TextStyle(
-                                      shadows: [
-                                        Shadow(
-                                            offset:
-                                                Offset.fromDirection(1, (4)),
-                                            blurRadius: 6)
-                                      ],
-                                      color: Colors.white,
-                                      fontSize: 24.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  'De Deily Y Laylah',
-                                  style: TextStyle(
-                                      shadows: [
-                                        Shadow(
-                                            offset:
-                                                Offset.fromDirection(1, (4)),
-                                            blurRadius: 6)
-                                      ],
-                                      color: Colors.white,
-                                      fontSize: 10.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 4,
-                                )
-                              ]),
-                          Container(
-                              padding: EdgeInsets.only(top: 20, left: 5),
-                              child: Badge(
-                                  padding: EdgeInsets.all(7),
-                                  badgeContent:
-                                      Text(carrito.numeroItem.toString()),
-                                  child: IconButton(
-                                      padding: EdgeInsets.all(4),
-                                      onPressed: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (BuildContext) =>
-                                                    CarritoPantalla()));
-                                      },
-                                      icon: Icon(
-                                        Icons.shopping_cart_checkout,
-                                        shadows: [
-                                          Shadow(
-                                              offset:
-                                                  Offset.fromDirection(1, (4)),
-                                              blurRadius: 6)
-                                        ],
-                                        size: 35,
-                                        color: Colors.white,
-                                      )))),
-                        ],
-                      ),
+          appBar: AppBar(
+            centerTitle: true,
+            backgroundColor: Colors.indigo.shade300,
+            title: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+              Text(
+                'EL PARAISO PERRUNO',
+                style: TextStyle(
+                    shadows: [
+                      Shadow(
+                          offset: Offset.fromDirection(1, (4)), blurRadius: 6)
+                    ],
+                    color: Colors.white,
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'De Deily Y Laylah',
+                style: TextStyle(
+                    shadows: [
+                      Shadow(
+                          offset: Offset.fromDirection(1, (4)), blurRadius: 6)
+                    ],
+                    color: Colors.white,
+                    fontSize: 10.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 4,
+              )
+            ]),
+          ),
+          body: Container(
+              height: 1400,
+              padding: EdgeInsets.only(top: 15),
+              decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 219, 217, 228),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(35),
+                      topRight: Radius.circular(35))),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 10,
                     ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 10,
+                    child: Text(
+                      'Categorias',
+                      style: TextStyle(
+                          color: Colors.indigo.shade300,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  child: Text(
-                    'Categorias',
-                    style: TextStyle(
-                        color: Colors.indigo.shade300,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
+                  Flexible(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(children: [
+                        TextButton(
+                          onPressed: () {
+                            controller.jumpToPage(0);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(60)),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/Collar12.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                Text(
+                                  'Collares',
+                                  style: TextStyle(
+                                      color: Colors.indigo.shade300,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            controller.jumpToPage(1);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(60)),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/pecheramediana copia.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                Text(
+                                  'Pecheras',
+                                  style: TextStyle(
+                                      color: Colors.indigo.shade300,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            controller.jumpToPage(2);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(60)),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/hueso.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                Text(
+                                  'Juguetes',
+                                  style: TextStyle(
+                                      color: Colors.indigo.shade300,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            controller.jumpToPage(3);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(60)),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/azul.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                Text(
+                                  'Ropa',
+                                  style: TextStyle(
+                                      color: Colors.indigo.shade300,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            controller.jumpToPage(4);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(60)),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/carnaza2.jpg',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                Text(
+                                  'Comestibles',
+                                  style: TextStyle(
+                                      color: Colors.indigo.shade300,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            controller.jumpToPage(5);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(60)),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/1661782757941.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                Text(
+                                  'Higiene',
+                                  style: TextStyle(
+                                      color: Colors.indigo.shade300,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ]),
+                    ),
                   ),
-                ),
-                Flexible(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(children: [
-                      TextButton(
-                        onPressed: () {
-                          controller.jumpToPage(0);
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 5,
-                          ),
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(60)),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                'assets/images/Collar12.png',
-                                width: 40,
-                                height: 40,
-                              ),
-                              Text(
-                                'Collares',
-                                style: TextStyle(
-                                    color: Colors.indigo.shade300,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
+                  Flexible(
+                      flex: 5,
+                      child: PageView(
+                        controller: controller,
+                        children: pageview,
+                      )),
+                ],
+              )),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: Container(
+            width: 130,
+            decoration: BoxDecoration(
+                color: Colors.indigo.shade300,
+                borderRadius: BorderRadius.circular(30)),
+            child: TextButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext) => CarritoPantalla()));
+              },
+              child: Badge(
+                  elevation: 4,
+                  position: BadgePosition.topEnd(top: -15, end: -8),
+                  badgeContent: Text(carrito.numeroItem.toString(),
+                      style: TextStyle(fontSize: 17)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'CARRITO',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          shadows: [
+                            Shadow(
+                                offset: Offset.fromDirection(1, (4)),
+                                blurRadius: 6)
+                          ],
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          controller.jumpToPage(1);
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 5,
-                          ),
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(60)),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                'assets/images/pecheramediana copia.png',
-                                width: 40,
-                                height: 40,
-                              ),
-                              Text(
-                                'Pecheras',
-                                style: TextStyle(
-                                    color: Colors.indigo.shade300,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
+                      Icon(
+                        Icons.shopping_cart_checkout,
+                        shadows: [
+                          Shadow(
+                              offset: Offset.fromDirection(1, (4)),
+                              blurRadius: 6)
+                        ],
+                        size: 25,
+                        color: Colors.white,
                       ),
-                      TextButton(
-                        onPressed: () {
-                          controller.jumpToPage(2);
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 5,
-                          ),
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(60)),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/images/hueso.png',
-                                width: 40,
-                                height: 40,
-                              ),
-                              Text(
-                                'Juguetes',
-                                style: TextStyle(
-                                    color: Colors.indigo.shade300,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          controller.jumpToPage(3);
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 5,
-                          ),
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(60)),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/images/azul.png',
-                                width: 40,
-                                height: 40,
-                              ),
-                              Text(
-                                'Ropa',
-                                style: TextStyle(
-                                    color: Colors.indigo.shade300,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          controller.jumpToPage(4);
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 5,
-                          ),
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(60)),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/images/carnaza2.jpg',
-                                width: 40,
-                                height: 40,
-                              ),
-                              Text(
-                                'Comestibles',
-                                style: TextStyle(
-                                    color: Colors.indigo.shade300,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          controller.jumpToPage(5);
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 5,
-                          ),
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(60)),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/images/1661782757941.png',
-                                width: 40,
-                                height: 40,
-                              ),
-                              Text(
-                                'Higiene',
-                                style: TextStyle(
-                                    color: Colors.indigo.shade300,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ]),
-                  ),
-                ),
-                Flexible(
-                    flex: 4,
-                    child: PageView(
-                      controller: controller,
-                      children: pageview,
-                    )),
-              ],
-            )),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.indigo.shade300,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Icon(Icons.home),
-        ),
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.miniCenterDocked,
-      );
+                    ],
+                  )),
+            ),
+          ));
     });
   }
 
@@ -429,370 +395,7 @@ class _CatalogoState extends State<Catalogo> {
                             ]),
                         child: TextButton(
                           onPressed: () {
-                            showBottomSheet(
-                                context: context,
-                                builder: (context) {
-                                  return BottomSheet(
-                                    enableDrag: false,
-                                    onClosing: () {},
-                                    builder: (context) => Scaffold(
-                                      appBar: AppBar(
-                                        toolbarHeight: 80,
-                                        backgroundColor:
-                                            Color.fromRGBO(121, 134, 203, 1),
-                                        leading: Container(
-                                          alignment: Alignment.bottomCenter,
-                                          child: IconButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              icon: Icon(Icons.arrow_back)),
-                                        ),
-                                        title: Container(
-                                            padding: EdgeInsets.only(
-                                                top: 30, left: 80),
-                                            child: Text(
-                                              collar.nombre,
-                                              style: TextStyle(
-                                                  shadows: [
-                                                    Shadow(
-                                                        offset: Offset
-                                                            .fromDirection(
-                                                                1, (4)),
-                                                        blurRadius: 6)
-                                                  ],
-                                                  color: Colors.white,
-                                                  fontSize: 24.0,
-                                                  fontWeight: FontWeight.bold),
-                                            )),
-                                      ),
-                                      body: Container(
-                                        padding:
-                                            EdgeInsets.only(left: 4, right: 4),
-                                        color:
-                                            Color.fromRGBO(13, 23, 246, 0.16),
-                                        child: Column(
-                                          children: [
-                                            ClipPath(
-                                              clipper:
-                                                  OvalBottomBorderClipper(),
-                                              child: Container(
-                                                width: 355,
-                                                height: 300,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                ),
-                                                child: CachedNetworkImage(
-                                                    placeholder: (context,
-                                                            url) =>
-                                                        const Image(
-                                                            image: AssetImage(
-                                                                'assets/cargando.gif')),
-                                                    fit: BoxFit.fitHeight,
-                                                    imageUrl: collar.imagen),
-                                              ),
-                                            ),
-                                            Stack(
-                                              children: [
-                                                Container(
-                                                  width: 300,
-                                                  child: Text(
-                                                    collar.titulo,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Patua One',
-                                                        fontSize: 25,
-                                                        foreground: Paint()
-                                                          ..color = Colors.black
-                                                          ..style =
-                                                              PaintingStyle
-                                                                  .stroke
-                                                          ..strokeWidth = 4,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  width: 300,
-                                                  child: Text(
-                                                    collar.titulo,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Patua One',
-                                                        fontSize: 25,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Container(
-                                              padding: EdgeInsets.only(
-                                                  left: 5, top: 10),
-                                              alignment: Alignment.centerLeft,
-                                              child: RatingBar(
-                                                  glowColor: Colors.blue,
-                                                  unratedColor: Colors.blue,
-                                                  initialRating: collar.ratings,
-                                                  direction: Axis.horizontal,
-                                                  allowHalfRating: true,
-                                                  itemCount: 5,
-                                                  itemSize: 40,
-                                                  ratingWidget: RatingWidget(
-                                                      full: Icon(
-                                                        Icons.star,
-                                                        color: Colors.blue,
-                                                      ),
-                                                      half: Icon(
-                                                        Icons.star_half,
-                                                        color: Colors.blue,
-                                                      ),
-                                                      empty: Icon(
-                                                        Icons.star_border,
-                                                        color: Colors.black,
-                                                      )),
-                                                  onRatingUpdate: (rating) {
-                                                    print(rating);
-                                                  }),
-                                            ),
-                                            Container(
-                                              height: 165,
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 10, vertical: 10),
-                                              child: Column(
-                                                children: [
-                                                  Stack(
-                                                    children: [
-                                                      Container(
-                                                        child: Text(
-                                                          'Descripción:',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 20,
-                                                              foreground:
-                                                                  Paint()
-                                                                    ..color =
-                                                                        Colors
-                                                                            .black
-                                                                    ..style =
-                                                                        PaintingStyle
-                                                                            .stroke
-                                                                    ..strokeWidth =
-                                                                        4,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        child: Text(
-                                                          'Descripción:',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 20,
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Stack(
-                                                    children: [
-                                                      Container(
-                                                        child: Text(
-                                                          collar.descripcion,
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 18,
-                                                              foreground:
-                                                                  Paint()
-                                                                    ..color =
-                                                                        Colors
-                                                                            .black
-                                                                    ..style =
-                                                                        PaintingStyle
-                                                                            .stroke
-                                                                    ..strokeWidth =
-                                                                        3,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        child: Text(
-                                                          collar.descripcion,
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 18,
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Container(
-                                              height: 72,
-                                              child: Row(
-                                                children: [
-                                                  Stack(
-                                                    children: [
-                                                      Container(
-                                                        width: 150,
-                                                        child: Text(
-                                                          'PRECIO:  ' +
-                                                              collar.precio
-                                                                  .toString() +
-                                                              ' USD , MLC o Cup(Al Cambio Actual) ',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 20,
-                                                              foreground:
-                                                                  Paint()
-                                                                    ..color =
-                                                                        Colors
-                                                                            .black
-                                                                    ..style =
-                                                                        PaintingStyle
-                                                                            .stroke
-                                                                    ..strokeWidth =
-                                                                        4,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 150,
-                                                        child: Text(
-                                                          'PRECIO:  ' +
-                                                              collar.precio
-                                                                  .toString() +
-                                                              ' USD , MLC o Cup(Al Cambio Actual) ',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 20,
-                                                              color: Color
-                                                                  .fromARGB(
-                                                                      255,
-                                                                      72,
-                                                                      238,
-                                                                      81),
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Expanded(child: Container()),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        right: 3),
-                                                    width: 173,
-                                                    height: 50,
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50),
-                                                        color: Color.fromRGBO(
-                                                            13, 23, 246, 0.16)),
-                                                    child: TextButton(
-                                                      onPressed: () {
-                                                        setState(() {
-                                                          carrito.agregarCarrito(
-                                                              collar.id
-                                                                  .toString(),
-                                                              collar.nombre,
-                                                              collar.titulo,
-                                                              collar.imagen,
-                                                              collar.precio,
-                                                              1);
-                                                        });
-                                                      },
-                                                      child: Stack(
-                                                        children: [
-                                                          Container(
-                                                            child: Text(
-                                                              'Añadir Al Carrito',
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                      'Patua One',
-                                                                  fontSize: 20,
-                                                                  foreground:
-                                                                      Paint()
-                                                                        ..color =
-                                                                            Colors.black
-                                                                        ..style =
-                                                                            PaintingStyle.stroke
-                                                                        ..strokeWidth =
-                                                                            4,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            child: Text(
-                                                              'Añadir Al Carrito',
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                      'Patua One',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                });
+                            descripcionescollares(context, collar, carrito);
                           },
                           child: Row(
                             children: [
@@ -881,12 +484,12 @@ class _CatalogoState extends State<Catalogo> {
                                             }),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 5),
+                                        padding: const EdgeInsets.only(left: 2),
                                         child: Stack(
                                           children: [
                                             Text(
                                               collar.precio.toString() +
-                                                  ' USD, MLC o CUP   (Al Cambio Actual)',
+                                                  ' USD, MLC o CUP               (Al Cambio Actual)',
                                               style: TextStyle(
                                                 inherit: false,
                                                 //color: Colors.white,
@@ -901,7 +504,7 @@ class _CatalogoState extends State<Catalogo> {
                                             ),
                                             Text(
                                               collar.precio.toString() +
-                                                  ' USD, MLC o CUP   (Al Cambio Actual)',
+                                                  ' USD, MLC o CUP               (Al Cambio Actual)',
                                               style: TextStyle(
                                                 inherit: false,
                                                 color: Color.fromARGB(
@@ -918,27 +521,111 @@ class _CatalogoState extends State<Catalogo> {
                                   ),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(40),
-                                    color: Colors.indigo.shade300),
-                                child: TextButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      carrito.agregarCarrito(
-                                          collar.id.toString(),
-                                          collar.nombre,
-                                          collar.titulo,
-                                          collar.imagen,
-                                          collar.precio,
-                                          1);
-                                    });
-                                  },
-                                  child: Icon(
-                                    Icons.add_shopping_cart_outlined,
-                                    size: 30,
-                                    color: Color.fromARGB(255, 246, 246, 246),
-                                  ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 5),
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 30),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      height: 35,
+                                      width: 55,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                offset: Offset.fromDirection(1),
+                                                blurRadius: 3)
+                                          ],
+                                          color: Colors.indigo.shade300),
+                                      child: TextButton(
+                                        onPressed: () {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                                  duration: Duration(
+                                                      milliseconds: 1000),
+                                                  content: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                            'Añadido Al Carrito',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 20,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold)),
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(30),
+                                                          child: Container(
+                                                            color: Colors.indigo
+                                                                .shade300,
+                                                            child: TextButton(
+                                                                onPressed: () {
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .push(MaterialPageRoute(
+                                                                          builder: ((context) =>
+                                                                              CarritoPantalla())));
+                                                                },
+                                                                child: Text(
+                                                                    'Ir Al Carrito',
+                                                                    style: TextStyle(
+                                                                        color: Colors
+                                                                            .white))),
+                                                          ),
+                                                        )
+                                                      ])));
+
+                                          setState(() {
+                                            carrito.agregarCarrito(
+                                                collar.id.toString(),
+                                                collar.nombre,
+                                                collar.titulo,
+                                                collar.imagen,
+                                                collar.precio,
+                                                1);
+                                          });
+                                        },
+                                        child: Icon(
+                                          Icons.add_shopping_cart_outlined,
+                                          size: 26,
+                                          color: Color.fromARGB(
+                                              255, 246, 246, 246),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Container(
+                                      height: 35,
+                                      width: 48,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                offset: Offset.fromDirection(1),
+                                                blurRadius: 3)
+                                          ],
+                                          color: Colors.indigo.shade300),
+                                      child: TextButton(
+                                          onPressed: () {
+                                            descripcionescollares(
+                                                context, collar, carrito);
+                                          },
+                                          child: Text('INFO',
+                                              style: TextStyle(
+                                                  color: Colors.white))),
+                                    ),
+                                  ],
                                 ),
                               )
                             ],
@@ -948,6 +635,322 @@ class _CatalogoState extends State<Catalogo> {
                     });
           });
     });
+  }
+
+  PersistentBottomSheetController<dynamic> descripcionescollares(
+      BuildContext context, Producto collar, Carrito carrito) {
+    return showBottomSheet(
+        context: context,
+        builder: (context) {
+          return BottomSheet(
+            enableDrag: false,
+            onClosing: () {},
+            builder: (context) => Scaffold(
+              appBar: AppBar(
+                toolbarHeight: 80,
+                backgroundColor: Color.fromRGBO(121, 134, 203, 1),
+                leading: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(Icons.arrow_back)),
+                ),
+                title: Container(
+                    padding: EdgeInsets.only(top: 30, left: 80),
+                    child: Text(
+                      collar.nombre,
+                      style: TextStyle(
+                          shadows: [
+                            Shadow(
+                                offset: Offset.fromDirection(1, (4)),
+                                blurRadius: 6)
+                          ],
+                          color: Colors.white,
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold),
+                    )),
+              ),
+              body: Container(
+                padding: EdgeInsets.only(left: 4, right: 4),
+                color: Color.fromRGBO(13, 23, 246, 0.157),
+                child: Column(
+                  children: [
+                    ClipPath(
+                      clipper: OvalBottomBorderClipper(),
+                      child: Container(
+                        width: 355,
+                        height: 220,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                        ),
+                        child: CachedNetworkImage(
+                            placeholder: (context, url) => const Image(
+                                image: AssetImage('assets/cargando.gif')),
+                            fit: BoxFit.fitHeight,
+                            imageUrl: collar.imagen),
+                      ),
+                    ),
+                    Stack(
+                      children: [
+                        Container(
+                          width: 300,
+                          child: Text(
+                            collar.titulo,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: 'Patua One',
+                                fontSize: 25,
+                                foreground: Paint()
+                                  ..color = Colors.black
+                                  ..style = PaintingStyle.stroke
+                                  ..strokeWidth = 4,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          width: 300,
+                          child: Text(
+                            collar.titulo,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: 'Patua One',
+                                fontSize: 25,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 5, top: 10),
+                      alignment: Alignment.centerLeft,
+                      child: RatingBar(
+                          glowColor: Colors.blue,
+                          unratedColor: Colors.blue,
+                          initialRating: collar.ratings,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemSize: 40,
+                          ratingWidget: RatingWidget(
+                              full: Icon(
+                                Icons.star,
+                                color: Colors.blue,
+                              ),
+                              half: Icon(
+                                Icons.star_half,
+                                color: Colors.blue,
+                              ),
+                              empty: Icon(
+                                Icons.star_border,
+                                color: Colors.black,
+                              )),
+                          onRatingUpdate: (rating) {
+                            print(rating);
+                          }),
+                    ),
+                    Container(
+                      height: 165,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                child: Text(
+                                  'Descripción:',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 20,
+                                      foreground: Paint()
+                                        ..color = Colors.black
+                                        ..style = PaintingStyle.stroke
+                                        ..strokeWidth = 4,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                child: Text(
+                                  'Descripción:',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Stack(
+                            children: [
+                              Container(
+                                child: Text(
+                                  collar.descripcion,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 18,
+                                      foreground: Paint()
+                                        ..color = Colors.black
+                                        ..style = PaintingStyle.stroke
+                                        ..strokeWidth = 3,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                child: Text(
+                                  collar.descripcion,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 72,
+                      child: Row(
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                width: 150,
+                                child: Text(
+                                  'PRECIO:  ' +
+                                      collar.precio.toString() +
+                                      ' USD , MLC o Cup(Al Cambio Actual) ',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 20,
+                                      foreground: Paint()
+                                        ..color = Colors.black
+                                        ..style = PaintingStyle.stroke
+                                        ..strokeWidth = 4,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                width: 150,
+                                child: Text(
+                                  'PRECIO:  ' +
+                                      collar.precio.toString() +
+                                      ' USD , MLC o Cup(Al Cambio Actual) ',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 72, 238, 81),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Expanded(child: Container()),
+                          Container(
+                            margin: EdgeInsets.only(right: 3),
+                            width: 173,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Color.fromRGBO(13, 23, 246, 0.16)),
+                            child: TextButton(
+                              onPressed: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        duration: Duration(milliseconds: 1000),
+                                        content: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text('Añadido Al Carrito',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                child: Container(
+                                                  color: Colors.indigo.shade300,
+                                                  child: TextButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    ((context) =>
+                                                                        CarritoPantalla())));
+                                                      },
+                                                      child: Text(
+                                                          'Ir Al Carrito',
+                                                          style: TextStyle(
+                                                              color: Colors
+                                                                  .white))),
+                                                ),
+                                              )
+                                            ])));
+                                setState(() {
+                                  carrito.agregarCarrito(
+                                      collar.id.toString(),
+                                      collar.nombre,
+                                      collar.titulo,
+                                      collar.imagen,
+                                      collar.precio,
+                                      1);
+                                });
+                              },
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Añadir Al Carrito',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontFamily: 'Patua One',
+                                          fontSize: 20,
+                                          foreground: Paint()
+                                            ..color = Colors.black
+                                            ..style = PaintingStyle.stroke
+                                            ..strokeWidth = 4,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Añadir Al Carrito',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontFamily: 'Patua One',
+                                          fontSize: 20,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
   }
 
   Widget pecheras(BuildContext context) {
@@ -998,371 +1001,7 @@ class _CatalogoState extends State<Catalogo> {
                             ]),
                         child: TextButton(
                           onPressed: () {
-                            showBottomSheet(
-                                context: context,
-                                builder: (context) {
-                                  return BottomSheet(
-                                    enableDrag: false,
-                                    onClosing: () {},
-                                    builder: (context) => Scaffold(
-                                      appBar: AppBar(
-                                        toolbarHeight: 80,
-                                        backgroundColor:
-                                            Color.fromRGBO(121, 134, 203, 1),
-                                        leading: Container(
-                                          alignment: Alignment.bottomCenter,
-                                          child: IconButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              icon: Icon(Icons.arrow_back)),
-                                        ),
-                                        title: Container(
-                                            padding: EdgeInsets.only(
-                                                top: 30, left: 80),
-                                            child: Text(
-                                              pechera.nombre,
-                                              style: TextStyle(
-                                                  shadows: [
-                                                    Shadow(
-                                                        offset: Offset
-                                                            .fromDirection(
-                                                                1, (4)),
-                                                        blurRadius: 6)
-                                                  ],
-                                                  color: Colors.white,
-                                                  fontSize: 24.0,
-                                                  fontWeight: FontWeight.bold),
-                                            )),
-                                      ),
-                                      body: Container(
-                                        padding:
-                                            EdgeInsets.only(left: 4, right: 4),
-                                        color:
-                                            Color.fromRGBO(13, 23, 246, 0.16),
-                                        child: Column(
-                                          children: [
-                                            ClipPath(
-                                              clipper:
-                                                  OvalBottomBorderClipper(),
-                                              child: Container(
-                                                width: 355,
-                                                height: 300,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                ),
-                                                child: CachedNetworkImage(
-                                                    placeholder: (context,
-                                                            url) =>
-                                                        const Image(
-                                                            image: AssetImage(
-                                                                'assets/cargando.gif')),
-                                                    fit: BoxFit.fitHeight,
-                                                    imageUrl: pechera.imagen),
-                                              ),
-                                            ),
-                                            Stack(
-                                              children: [
-                                                Container(
-                                                  width: 300,
-                                                  child: Text(
-                                                    pechera.titulo,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Patua One',
-                                                        fontSize: 25,
-                                                        foreground: Paint()
-                                                          ..color = Colors.black
-                                                          ..style =
-                                                              PaintingStyle
-                                                                  .stroke
-                                                          ..strokeWidth = 4,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  width: 300,
-                                                  child: Text(
-                                                    pechera.titulo,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Patua One',
-                                                        fontSize: 25,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Container(
-                                              padding: EdgeInsets.only(
-                                                  left: 5, top: 10),
-                                              alignment: Alignment.centerLeft,
-                                              child: RatingBar(
-                                                  glowColor: Colors.blue,
-                                                  unratedColor: Colors.blue,
-                                                  initialRating:
-                                                      pechera.ratings,
-                                                  direction: Axis.horizontal,
-                                                  allowHalfRating: true,
-                                                  itemCount: 5,
-                                                  itemSize: 40,
-                                                  ratingWidget: RatingWidget(
-                                                      full: Icon(
-                                                        Icons.star,
-                                                        color: Colors.blue,
-                                                      ),
-                                                      half: Icon(
-                                                        Icons.star_half,
-                                                        color: Colors.blue,
-                                                      ),
-                                                      empty: Icon(
-                                                        Icons.star_border,
-                                                        color: Colors.black,
-                                                      )),
-                                                  onRatingUpdate: (rating) {
-                                                    print(rating);
-                                                  }),
-                                            ),
-                                            Container(
-                                              height: 165,
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 10, vertical: 10),
-                                              child: Column(
-                                                children: [
-                                                  Stack(
-                                                    children: [
-                                                      Container(
-                                                        child: Text(
-                                                          'Descripción:',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 20,
-                                                              foreground:
-                                                                  Paint()
-                                                                    ..color =
-                                                                        Colors
-                                                                            .black
-                                                                    ..style =
-                                                                        PaintingStyle
-                                                                            .stroke
-                                                                    ..strokeWidth =
-                                                                        4,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        child: Text(
-                                                          'Descripción:',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 20,
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Stack(
-                                                    children: [
-                                                      Container(
-                                                        child: Text(
-                                                          pechera.descripcion,
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 18,
-                                                              foreground:
-                                                                  Paint()
-                                                                    ..color =
-                                                                        Colors
-                                                                            .black
-                                                                    ..style =
-                                                                        PaintingStyle
-                                                                            .stroke
-                                                                    ..strokeWidth =
-                                                                        3,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        child: Text(
-                                                          pechera.descripcion,
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 18,
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Container(
-                                              height: 72,
-                                              child: Row(
-                                                children: [
-                                                  Stack(
-                                                    children: [
-                                                      Container(
-                                                        width: 150,
-                                                        child: Text(
-                                                          'PRECIO:  ' +
-                                                              pechera.precio
-                                                                  .toString() +
-                                                              ' USD , MLC o Cup(Al Cambio Actual) ',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 20,
-                                                              foreground:
-                                                                  Paint()
-                                                                    ..color =
-                                                                        Colors
-                                                                            .black
-                                                                    ..style =
-                                                                        PaintingStyle
-                                                                            .stroke
-                                                                    ..strokeWidth =
-                                                                        4,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 150,
-                                                        child: Text(
-                                                          'PRECIO:  ' +
-                                                              pechera.precio
-                                                                  .toString() +
-                                                              ' USD , MLC o Cup(Al Cambio Actual) ',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Patua One',
-                                                              fontSize: 20,
-                                                              color: Color
-                                                                  .fromARGB(
-                                                                      255,
-                                                                      72,
-                                                                      238,
-                                                                      81),
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Expanded(child: Container()),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        right: 3),
-                                                    width: 173,
-                                                    height: 50,
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50),
-                                                        color: Color.fromRGBO(
-                                                            13, 23, 246, 0.16)),
-                                                    child: TextButton(
-                                                      onPressed: () {
-                                                        setState(() {
-                                                          carrito.agregarCarrito(
-                                                              pechera.id
-                                                                  .toString(),
-                                                              pechera.nombre,
-                                                              pechera.titulo,
-                                                              pechera.imagen,
-                                                              pechera.precio,
-                                                              1);
-                                                        });
-                                                      },
-                                                      child: Stack(
-                                                        children: [
-                                                          Container(
-                                                            child: Text(
-                                                              'Añadir Al Carrito',
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                      'Patua One',
-                                                                  fontSize: 20,
-                                                                  foreground:
-                                                                      Paint()
-                                                                        ..color =
-                                                                            Colors.black
-                                                                        ..style =
-                                                                            PaintingStyle.stroke
-                                                                        ..strokeWidth =
-                                                                            4,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            child: Text(
-                                                              'Añadir Al Carrito',
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                      'Patua One',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                });
+                            descripcionespecheras(context, pechera, carrito);
                           },
                           child: Row(
                             children: [
@@ -1494,6 +1133,46 @@ class _CatalogoState extends State<Catalogo> {
                                     color: Colors.indigo.shade300),
                                 child: TextButton(
                                   onPressed: () {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            duration:
+                                                Duration(milliseconds: 1000),
+                                            content: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text('Añadido Al Carrito',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 20,
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30),
+                                                    child: Container(
+                                                      color: Colors
+                                                          .indigo.shade300,
+                                                      child: TextButton(
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .push(MaterialPageRoute(
+                                                                    builder:
+                                                                        ((context) =>
+                                                                            CarritoPantalla())));
+                                                          },
+                                                          child: Text(
+                                                              'Ir Al Carrito',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white))),
+                                                    ),
+                                                  )
+                                                ])));
+
                                     setState(() {
                                       carrito.agregarCarrito(
                                           pechera.id.toString(),
@@ -1518,6 +1197,323 @@ class _CatalogoState extends State<Catalogo> {
                     });
           });
     });
+  }
+
+  PersistentBottomSheetController<dynamic> descripcionespecheras(
+      BuildContext context, Producto pechera, Carrito carrito) {
+    return showBottomSheet(
+        context: context,
+        builder: (context) {
+          return BottomSheet(
+            enableDrag: false,
+            onClosing: () {},
+            builder: (context) => Scaffold(
+              appBar: AppBar(
+                toolbarHeight: 80,
+                backgroundColor: Color.fromRGBO(121, 134, 203, 1),
+                leading: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(Icons.arrow_back)),
+                ),
+                title: Container(
+                    padding: EdgeInsets.only(top: 30, left: 80),
+                    child: Text(
+                      pechera.nombre,
+                      style: TextStyle(
+                          shadows: [
+                            Shadow(
+                                offset: Offset.fromDirection(1, (4)),
+                                blurRadius: 6)
+                          ],
+                          color: Colors.white,
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold),
+                    )),
+              ),
+              body: Container(
+                padding: EdgeInsets.only(left: 4, right: 4),
+                color: Color.fromRGBO(13, 23, 246, 0.16),
+                child: Column(
+                  children: [
+                    ClipPath(
+                      clipper: OvalBottomBorderClipper(),
+                      child: Container(
+                        width: 355,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                        ),
+                        child: CachedNetworkImage(
+                            placeholder: (context, url) => const Image(
+                                image: AssetImage('assets/cargando.gif')),
+                            fit: BoxFit.fitHeight,
+                            imageUrl: pechera.imagen),
+                      ),
+                    ),
+                    Stack(
+                      children: [
+                        Container(
+                          width: 300,
+                          child: Text(
+                            pechera.titulo,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: 'Patua One',
+                                fontSize: 25,
+                                foreground: Paint()
+                                  ..color = Colors.black
+                                  ..style = PaintingStyle.stroke
+                                  ..strokeWidth = 4,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          width: 300,
+                          child: Text(
+                            pechera.titulo,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontFamily: 'Patua One',
+                                fontSize: 25,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 5, top: 10),
+                      alignment: Alignment.centerLeft,
+                      child: RatingBar(
+                          glowColor: Colors.blue,
+                          unratedColor: Colors.blue,
+                          initialRating: pechera.ratings,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemSize: 40,
+                          ratingWidget: RatingWidget(
+                              full: Icon(
+                                Icons.star,
+                                color: Colors.blue,
+                              ),
+                              half: Icon(
+                                Icons.star_half,
+                                color: Colors.blue,
+                              ),
+                              empty: Icon(
+                                Icons.star_border,
+                                color: Colors.black,
+                              )),
+                          onRatingUpdate: (rating) {
+                            print(rating);
+                          }),
+                    ),
+                    Container(
+                      height: 165,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                child: Text(
+                                  'Descripción:',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 20,
+                                      foreground: Paint()
+                                        ..color = Colors.black
+                                        ..style = PaintingStyle.stroke
+                                        ..strokeWidth = 4,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                child: Text(
+                                  'Descripción:',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Stack(
+                            children: [
+                              Container(
+                                child: Text(
+                                  pechera.descripcion,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 18,
+                                      foreground: Paint()
+                                        ..color = Colors.black
+                                        ..style = PaintingStyle.stroke
+                                        ..strokeWidth = 3,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                child: Text(
+                                  pechera.descripcion,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 72,
+                      child: Row(
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                width: 150,
+                                child: Text(
+                                  'PRECIO:  ' +
+                                      pechera.precio.toString() +
+                                      ' USD , MLC o Cup(Al Cambio Actual) ',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 20,
+                                      foreground: Paint()
+                                        ..color = Colors.black
+                                        ..style = PaintingStyle.stroke
+                                        ..strokeWidth = 4,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                width: 150,
+                                child: Text(
+                                  'PRECIO:  ' +
+                                      pechera.precio.toString() +
+                                      ' USD , MLC o Cup(Al Cambio Actual) ',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'Patua One',
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 72, 238, 81),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Expanded(child: Container()),
+                          Container(
+                            margin: EdgeInsets.only(right: 3),
+                            width: 173,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Color.fromRGBO(13, 23, 246, 0.16)),
+                            child: TextButton(
+                              onPressed: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        duration: Duration(milliseconds: 1000),
+                                        content: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text('Añadido Al Carrito',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                child: Container(
+                                                  color: Colors.indigo.shade300,
+                                                  child: TextButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    ((context) =>
+                                                                        CarritoPantalla())));
+                                                      },
+                                                      child: Text(
+                                                          'Ir Al Carrito',
+                                                          style: TextStyle(
+                                                              color: Colors
+                                                                  .white))),
+                                                ),
+                                              )
+                                            ])));
+
+                                setState(() {
+                                  carrito.agregarCarrito(
+                                      pechera.id.toString(),
+                                      pechera.nombre,
+                                      pechera.titulo,
+                                      pechera.imagen,
+                                      pechera.precio,
+                                      1);
+                                });
+                              },
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'Añadir Al Carrito',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontFamily: 'Patua One',
+                                          fontSize: 20,
+                                          foreground: Paint()
+                                            ..color = Colors.black
+                                            ..style = PaintingStyle.stroke
+                                            ..strokeWidth = 4,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Añadir Al Carrito',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontFamily: 'Patua One',
+                                          fontSize: 20,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
   }
 
   Widget juguetes(BuildContext context) {
@@ -1870,6 +1866,38 @@ class _CatalogoState extends State<Catalogo> {
                                                     child: TextButton(
                                                       onPressed: () {
                                                         setState(() {
+                                                          ScaffoldMessenger.of(context).showSnackBar(
+                                                              SnackBar(
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          1000),
+                                                                  content: Row(
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Text(
+                                                                            'Añadido Al Carrito',
+                                                                            style: TextStyle(
+                                                                                color: Colors.white,
+                                                                                fontSize: 20,
+                                                                                fontWeight: FontWeight.bold)),
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(30),
+                                                                          child:
+                                                                              Container(
+                                                                            color:
+                                                                                Colors.indigo.shade300,
+                                                                            child: TextButton(
+                                                                                onPressed: () {
+                                                                                  Navigator.of(context).push(MaterialPageRoute(builder: ((context) => CarritoPantalla())));
+                                                                                },
+                                                                                child: Text('Ir Al Carrito', style: TextStyle(color: Colors.white))),
+                                                                          ),
+                                                                        )
+                                                                      ])));
+
                                                           carrito.agregarCarrito(
                                                               juguete.id
                                                                   .toString(),
@@ -2067,6 +2095,47 @@ class _CatalogoState extends State<Catalogo> {
                                 child: TextButton(
                                   onPressed: () {
                                     setState(() {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              duration:
+                                                  Duration(milliseconds: 1000),
+                                              content: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text('Añadido Al Carrito',
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 20,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold)),
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              30),
+                                                      child: Container(
+                                                        color: Colors
+                                                            .indigo.shade300,
+                                                        child: TextButton(
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .push(MaterialPageRoute(
+                                                                      builder:
+                                                                          ((context) =>
+                                                                              CarritoPantalla())));
+                                                            },
+                                                            child: Text(
+                                                                'Ir Al Carrito',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .white))),
+                                                      ),
+                                                    )
+                                                  ])));
+
                                       carrito.agregarCarrito(
                                           juguete.id.toString(),
                                           juguete.nombre,
@@ -2439,6 +2508,38 @@ class _CatalogoState extends State<Catalogo> {
                                                     child: TextButton(
                                                       onPressed: () {
                                                         setState(() {
+                                                          ScaffoldMessenger.of(context).showSnackBar(
+                                                              SnackBar(
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          1000),
+                                                                  content: Row(
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Text(
+                                                                            'Añadido Al Carrito',
+                                                                            style: TextStyle(
+                                                                                color: Colors.white,
+                                                                                fontSize: 20,
+                                                                                fontWeight: FontWeight.bold)),
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(30),
+                                                                          child:
+                                                                              Container(
+                                                                            color:
+                                                                                Colors.indigo.shade300,
+                                                                            child: TextButton(
+                                                                                onPressed: () {
+                                                                                  Navigator.of(context).push(MaterialPageRoute(builder: ((context) => CarritoPantalla())));
+                                                                                },
+                                                                                child: Text('Ir Al Carrito', style: TextStyle(color: Colors.white))),
+                                                                          ),
+                                                                        )
+                                                                      ])));
+
                                                           carrito.agregarCarrito(
                                                               ropa.id
                                                                   .toString(),
@@ -2636,6 +2737,47 @@ class _CatalogoState extends State<Catalogo> {
                                 child: TextButton(
                                   onPressed: () {
                                     setState(() {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              duration:
+                                                  Duration(milliseconds: 1000),
+                                              content: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text('Añadido Al Carrito',
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 20,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold)),
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              30),
+                                                      child: Container(
+                                                        color: Colors
+                                                            .indigo.shade300,
+                                                        child: TextButton(
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .push(MaterialPageRoute(
+                                                                      builder:
+                                                                          ((context) =>
+                                                                              CarritoPantalla())));
+                                                            },
+                                                            child: Text(
+                                                                'Ir Al Carrito',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .white))),
+                                                      ),
+                                                    )
+                                                  ])));
+
                                       carrito.agregarCarrito(
                                           ropa.id.toString(),
                                           ropa.nombre,
@@ -3012,6 +3154,38 @@ class _CatalogoState extends State<Catalogo> {
                                                     child: TextButton(
                                                       onPressed: () {
                                                         setState(() {
+                                                          ScaffoldMessenger.of(context).showSnackBar(
+                                                              SnackBar(
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          1000),
+                                                                  content: Row(
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Text(
+                                                                            'Añadido Al Carrito',
+                                                                            style: TextStyle(
+                                                                                color: Colors.white,
+                                                                                fontSize: 20,
+                                                                                fontWeight: FontWeight.bold)),
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(30),
+                                                                          child:
+                                                                              Container(
+                                                                            color:
+                                                                                Colors.indigo.shade300,
+                                                                            child: TextButton(
+                                                                                onPressed: () {
+                                                                                  Navigator.of(context).push(MaterialPageRoute(builder: ((context) => CarritoPantalla())));
+                                                                                },
+                                                                                child: Text('Ir Al Carrito', style: TextStyle(color: Colors.white))),
+                                                                          ),
+                                                                        )
+                                                                      ])));
+
                                                           carrito.agregarCarrito(
                                                               comestibles.id
                                                                   .toString(),
@@ -3213,6 +3387,47 @@ class _CatalogoState extends State<Catalogo> {
                                 child: TextButton(
                                   onPressed: () {
                                     setState(() {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              duration:
+                                                  Duration(milliseconds: 1000),
+                                              content: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text('Añadido Al Carrito',
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 20,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold)),
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              30),
+                                                      child: Container(
+                                                        color: Colors
+                                                            .indigo.shade300,
+                                                        child: TextButton(
+                                                            onPressed: () {
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .push(MaterialPageRoute(
+                                                                      builder:
+                                                                          ((context) =>
+                                                                              CarritoPantalla())));
+                                                            },
+                                                            child: Text(
+                                                                'Ir Al Carrito',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .white))),
+                                                      ),
+                                                    )
+                                                  ])));
+
                                       carrito.agregarCarrito(
                                           comestibles.id.toString(),
                                           comestibles.nombre,
@@ -3586,6 +3801,38 @@ class _CatalogoState extends State<Catalogo> {
                                                     child: TextButton(
                                                       onPressed: () {
                                                         setState(() {
+                                                          ScaffoldMessenger.of(context).showSnackBar(
+                                                              SnackBar(
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          1000),
+                                                                  content: Row(
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        Text(
+                                                                            'Añadido Al Carrito',
+                                                                            style: TextStyle(
+                                                                                color: Colors.white,
+                                                                                fontSize: 20,
+                                                                                fontWeight: FontWeight.bold)),
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(30),
+                                                                          child:
+                                                                              Container(
+                                                                            color:
+                                                                                Colors.indigo.shade300,
+                                                                            child: TextButton(
+                                                                                onPressed: () {
+                                                                                  Navigator.of(context).push(MaterialPageRoute(builder: ((context) => CarritoPantalla())));
+                                                                                },
+                                                                                child: Text('Ir Al Carrito', style: TextStyle(color: Colors.white))),
+                                                                          ),
+                                                                        )
+                                                                      ])));
+
                                                           carrito.agregarCarrito(
                                                               higiene.id
                                                                   .toString(),
@@ -3782,6 +4029,46 @@ class _CatalogoState extends State<Catalogo> {
                                     color: Colors.indigo.shade300),
                                 child: TextButton(
                                   onPressed: () {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            duration:
+                                                Duration(milliseconds: 1000),
+                                            content: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text('Añadido Al Carrito',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 20,
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30),
+                                                    child: Container(
+                                                      color: Colors
+                                                          .indigo.shade300,
+                                                      child: TextButton(
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .push(MaterialPageRoute(
+                                                                    builder:
+                                                                        ((context) =>
+                                                                            CarritoPantalla())));
+                                                          },
+                                                          child: Text(
+                                                              'Ir Al Carrito',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white))),
+                                                    ),
+                                                  )
+                                                ])));
+
                                     setState(() {
                                       carrito.agregarCarrito(
                                           higiene.id.toString(),

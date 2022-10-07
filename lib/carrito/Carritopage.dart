@@ -17,8 +17,9 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
     return Consumer<Carrito>(builder: (context, carrito, child) {
       return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Colors.indigo.shade300,
-          title: Text('Pedidos'),
+          title: Text('CARRITO DE COMPRAS'),
         ),
         body: Container(
           color: Color.fromARGB(255, 219, 217, 228),
@@ -303,7 +304,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                 '\n********************\n';
                             pedido = '$pedido' +
                                 ' Total Con Domicilio ' +
-                                (carrito.montoTotal + 50).toString() +
+                                (carrito.montoTotal + 0.25).toString() +
                                 '\n********************\n';
                             //vincular wathsapp
                             String celular = '5355179245';

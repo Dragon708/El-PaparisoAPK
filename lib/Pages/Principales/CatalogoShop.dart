@@ -41,7 +41,7 @@ class _CatalogoState extends State<Catalogo> {
       return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.indigo.shade300,
+            backgroundColor: Colors.blueAccent,
             title: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
               Text(
                 'EL PARAISO PERRUNO',
@@ -74,10 +74,8 @@ class _CatalogoState extends State<Catalogo> {
               height: 1400,
               padding: EdgeInsets.only(top: 15),
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 219, 217, 228),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(35),
-                      topRight: Radius.circular(35))),
+                color: Color.fromARGB(255, 219, 217, 228),
+              ),
               child: Column(
                 children: [
                   Container(
@@ -88,7 +86,7 @@ class _CatalogoState extends State<Catalogo> {
                     child: Text(
                       'Categorias',
                       style: TextStyle(
-                          color: Colors.indigo.shade300,
+                          color: Colors.blue,
                           fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ),
@@ -120,7 +118,7 @@ class _CatalogoState extends State<Catalogo> {
                                 Text(
                                   'Collares',
                                   style: TextStyle(
-                                      color: Colors.indigo.shade300,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
@@ -151,7 +149,7 @@ class _CatalogoState extends State<Catalogo> {
                                 Text(
                                   'Pecheras',
                                   style: TextStyle(
-                                      color: Colors.indigo.shade300,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
@@ -183,7 +181,7 @@ class _CatalogoState extends State<Catalogo> {
                                 Text(
                                   'Juguetes',
                                   style: TextStyle(
-                                      color: Colors.indigo.shade300,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
@@ -215,7 +213,7 @@ class _CatalogoState extends State<Catalogo> {
                                 Text(
                                   'Ropa',
                                   style: TextStyle(
-                                      color: Colors.indigo.shade300,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
@@ -247,7 +245,7 @@ class _CatalogoState extends State<Catalogo> {
                                 Text(
                                   'Comestibles',
                                   style: TextStyle(
-                                      color: Colors.indigo.shade300,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
@@ -279,7 +277,7 @@ class _CatalogoState extends State<Catalogo> {
                                 Text(
                                   'Higiene',
                                   style: TextStyle(
-                                      color: Colors.indigo.shade300,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
@@ -303,7 +301,7 @@ class _CatalogoState extends State<Catalogo> {
           floatingActionButton: Container(
             width: 130,
             decoration: BoxDecoration(
-                color: Colors.indigo.shade300,
+                color: Colors.blueAccent,
                 borderRadius: BorderRadius.circular(30)),
             child: TextButton(
               onPressed: () {
@@ -538,7 +536,7 @@ class _CatalogoState extends State<Catalogo> {
                                                 offset: Offset.fromDirection(1),
                                                 blurRadius: 3)
                                           ],
-                                          color: Colors.indigo.shade300),
+                                          color: Colors.blueAccent),
                                       child: TextButton(
                                         onPressed: () {
                                           ScaffoldMessenger.of(context)
@@ -615,7 +613,7 @@ class _CatalogoState extends State<Catalogo> {
                                                 offset: Offset.fromDirection(1),
                                                 blurRadius: 3)
                                           ],
-                                          color: Colors.indigo.shade300),
+                                          color: Colors.blueAccent),
                                       child: TextButton(
                                           onPressed: () {
                                             descripcionescollares(

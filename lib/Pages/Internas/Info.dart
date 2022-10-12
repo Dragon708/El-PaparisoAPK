@@ -21,7 +21,6 @@ class Info extends StatefulWidget {
 class _InfoState extends State<Info> {
   @override
   Widget build(BuildContext context) {
-    final tamano = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: [

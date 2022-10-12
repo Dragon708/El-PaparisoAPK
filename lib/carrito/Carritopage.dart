@@ -19,12 +19,12 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.indigo.shade300,
-          title: Text('CARRITO DE COMPRAS'),
+          title: const Text('CARRITO DE COMPRAS'),
         ),
         body: Container(
-          color: Color.fromARGB(255, 219, 217, 228),
+          color: const Color.fromARGB(255, 219, 217, 228),
           child: carrito.item.length == 0
-              ? Center(
+              ? const Center(
                   child: Text('Carrito Vacio'),
                 )
               : ListView(
@@ -42,25 +42,25 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                             ),
                             Expanded(
                                 child: Container(
-                              padding: EdgeInsets.all(7),
+                              padding: const EdgeInsets.all(7),
                               child: Column(
                                 children: [
                                   Container(
                                     alignment: Alignment.centerLeft,
                                     child: Text(item.title,
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16)),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 3,
                                   ),
                                   Container(
                                     alignment: Alignment.centerLeft,
                                     child: Text(item.precio.toString() + ' USD',
                                         textAlign: TextAlign.left,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16)),
                                   ),
@@ -68,13 +68,13 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                     padding: const EdgeInsets.only(left: 1),
                                     child: Row(
                                       children: [
-                                        Text('Cantidad:',
+                                        const Text('Cantidad:',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 13)),
                                         Expanded(child: Container()),
                                         Container(
-                                          margin: EdgeInsets.symmetric(
+                                          margin: const EdgeInsets.symmetric(
                                               horizontal: 5),
                                           decoration: BoxDecoration(
                                             color: Colors.indigo.shade300,
@@ -84,7 +84,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                           width: 30,
                                           height: 30,
                                           child: IconButton(
-                                              padding: EdgeInsets.all(1),
+                                              padding: const EdgeInsets.all(1),
                                               iconSize: 27,
                                               color: Colors.white,
                                               onPressed: () {
@@ -94,20 +94,20 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                                           item.id);
                                                 });
                                               },
-                                              icon: Icon(Icons.remove)),
+                                              icon: const Icon(Icons.remove)),
                                         ),
                                         Container(
                                           child: Center(
                                             child: Text(
                                                 item.cantidad.toString(),
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 20,
                                                 )),
                                           ),
                                         ),
                                         Container(
-                                          margin: EdgeInsets.symmetric(
+                                          margin: const EdgeInsets.symmetric(
                                               horizontal: 5),
                                           decoration: BoxDecoration(
                                             color: Colors.indigo.shade300,
@@ -117,7 +117,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                           width: 30,
                                           height: 30,
                                           child: IconButton(
-                                              padding: EdgeInsets.all(1),
+                                              padding: const EdgeInsets.all(1),
                                               iconSize: 27,
                                               color: Colors.white,
                                               onPressed: () {
@@ -127,7 +127,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                                           item.id);
                                                 });
                                               },
-                                              icon: Icon(Icons.add)),
+                                              icon: const Icon(Icons.add)),
                                         ),
                                       ],
                                     ),
@@ -139,10 +139,10 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                               width: 74,
                               height: 100,
                               child: Padding(
-                                padding: EdgeInsets.only(top: 30),
+                                padding: const EdgeInsets.only(top: 30),
                                 child: Column(
                                   children: [
-                                    Text('Total',
+                                    const Text('Total',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 19)),
@@ -150,7 +150,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                         (item.precio * item.cantidad)
                                                 .toString() +
                                             ' USD',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                         )),
                                   ],
@@ -192,7 +192,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                   ]),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Text(
@@ -227,7 +227,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                   ]),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Text(
@@ -261,7 +261,7 @@ class _CarritoPAntallaState extends State<CarritoPantalla> {
                                   ]),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Text(

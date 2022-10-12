@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:paraisoperrunoapk/Pages/Principales/Inicio.dart';
 
-import 'Principales/pageviewinicio.dart';
-
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final sizeDisplay = MediaQuery.of(context).size;
-    var estiloInicio = TextStyle(
+    var estiloInicio = const TextStyle(
         inherit: false,
         fontSize: 50,
         color: Colors.white,
@@ -38,7 +35,7 @@ class Homepage extends StatelessWidget {
                 child: Container(
                   width: 219,
                   height: 321,
-                  child: Image(
+                  child: const Image(
                       filterQuality: FilterQuality.high,
                       image: AssetImage('assets/images/Logobueno.png')),
                 )),
@@ -48,7 +45,7 @@ class Homepage extends StatelessWidget {
                 child: Container(
                   width: 65,
                   height: 59,
-                  child: Image(
+                  child: const Image(
                       filterQuality: FilterQuality.high,
                       image: AssetImage('assets/images/paticas.png')),
                 )),
@@ -58,7 +55,7 @@ class Homepage extends StatelessWidget {
                 child: Container(
                   width: 65,
                   height: 59,
-                  child: Image(
+                  child: const Image(
                       filterQuality: FilterQuality.high,
                       image: AssetImage('assets/images/paticas.png')),
                 )),
@@ -68,16 +65,16 @@ class Homepage extends StatelessWidget {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(800),
                     child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 4),
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
                         width: 141,
                         height: 60,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color.fromRGBO(175, 182, 206, 100),
                         ),
                         child: TextButton(
                             onPressed: () {
                               final ruta = MaterialPageRoute(
-                                  builder: ((context) => Inicio()));
+                                  builder: ((context) => const Inicio()));
                               Navigator.push(context, ruta);
                             },
                             child: Row(
@@ -93,7 +90,7 @@ class Homepage extends StatelessWidget {
                                             ..style = PaintingStyle.stroke
                                             ..strokeWidth = 3),
                                     ),
-                                    Text(
+                                    const Text(
                                       'Bienvenidos',
                                       style: TextStyle(
                                           fontSize: 17, color: Colors.white),
@@ -144,9 +141,9 @@ class Homepage extends StatelessWidget {
                   child: Container(
                       width: 36,
                       height: 281,
-                      padding:
-                          EdgeInsets.only(right: 5, left: 5, top: 5, bottom: 5),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.only(
+                          right: 5, left: 5, top: 5, bottom: 5),
+                      decoration: const BoxDecoration(
                           color: Color.fromRGBO(175, 182, 206, 100),
                           borderRadius: BorderRadius.only(
                               topRight: Radius.circular(200))),
@@ -172,7 +169,7 @@ class Homepage extends StatelessWidget {
                               ),
                               Container(
                                 alignment: Alignment.center,
-                                child: Text(
+                                child: const Text(
                                   'Estetica Canina',
                                   style: TextStyle(
                                       inherit: false,
@@ -194,9 +191,9 @@ class Homepage extends StatelessWidget {
                   child: Container(
                       width: 36,
                       height: 281,
-                      padding:
-                          EdgeInsets.only(right: 5, left: 5, top: 5, bottom: 5),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.only(
+                          right: 5, left: 5, top: 5, bottom: 5),
+                      decoration: const BoxDecoration(
                           color: Color.fromRGBO(175, 182, 206, 100),
                           borderRadius:
                               BorderRadius.only(topLeft: Radius.circular(200))),
@@ -222,7 +219,7 @@ class Homepage extends StatelessWidget {
                               ),
                               Container(
                                 alignment: Alignment.center,
-                                child: Text(
+                                child: const Text(
                                   'Tienda De Accesorios',
                                   style: TextStyle(
                                       inherit: false,

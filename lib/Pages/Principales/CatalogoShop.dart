@@ -347,8 +347,8 @@ class _CatalogoState extends State<Catalogo> {
 
   Widget collares(BuildContext context) {
     Future<List<Producto>> getdatos() async {
-      final response = await http.get(Uri.parse(
-          'https://fantastic-valkyrie-6f02c3.netlify.app/db/collares.json'));
+      final response = await http.get(
+          Uri.parse('https://jsonmultiservice.netlify.app/db/collares.json'));
       var prods = jsonDecode(utf8.decode(response.bodyBytes)) as List<dynamic>;
       //print(prods.length);
       return prods.map((e) => Producto.fromJson(e)).toList();
@@ -953,8 +953,8 @@ class _CatalogoState extends State<Catalogo> {
 
   Widget pecheras(BuildContext context) {
     Future<List<Producto>> getdatos() async {
-      final response = await http.get(Uri.parse(
-          'https://fantastic-valkyrie-6f02c3.netlify.app/db/pecheras.json'));
+      final response = await http.get(
+          Uri.parse('https://jsonmultiservice.netlify.app/db/pecheras.json'));
       var prods = jsonDecode(utf8.decode(response.bodyBytes)) as List<dynamic>;
       //print(prods.length);
       return prods.map((e) => Producto.fromJson(e)).toList();
@@ -1516,8 +1516,8 @@ class _CatalogoState extends State<Catalogo> {
 
   Widget juguetes(BuildContext context) {
     Future<List<Producto>> getdatos() async {
-      final response = await http.get(Uri.parse(
-          'https://fantastic-valkyrie-6f02c3.netlify.app/db/juguetes.json'));
+      final response = await http.get(
+          Uri.parse('https://jsonmultiservice.netlify.app/db/juguetes.json'));
       var prods = jsonDecode(utf8.decode(response.bodyBytes)) as List<dynamic>;
       //print(prods.length);
       return prods.map((e) => Producto.fromJson(e)).toList();
@@ -2161,8 +2161,8 @@ class _CatalogoState extends State<Catalogo> {
 
   Widget ropa(BuildContext context) {
     Future<List<Producto>> getdatos() async {
-      final response = await http.get(Uri.parse(
-          'https://fantastic-valkyrie-6f02c3.netlify.app/db/ropa.json'));
+      final response = await http
+          .get(Uri.parse('https://jsonmultiservice.netlify.app/db/ropa.json'));
       var prods = jsonDecode(utf8.decode(response.bodyBytes)) as List<dynamic>;
       //print(prods.length);
       return prods.map((e) => Producto.fromJson(e)).toList();
@@ -2804,7 +2804,7 @@ class _CatalogoState extends State<Catalogo> {
   Widget comestibles(BuildContext context) {
     Future<List<Producto>> getdatos() async {
       final response = await http.get(Uri.parse(
-          'https://fantastic-valkyrie-6f02c3.netlify.app/db/comestibles.json'));
+          'https://jsonmultiservice.netlify.app/db/comestibles.json'));
       var prods = jsonDecode(utf8.decode(response.bodyBytes)) as List<dynamic>;
       //print(prods.length);
       return prods.map((e) => Producto.fromJson(e)).toList();
@@ -3453,8 +3453,8 @@ class _CatalogoState extends State<Catalogo> {
 
   Widget higiene(BuildContext context) {
     Future<List<Producto>> getdatos() async {
-      final response = await http.get(Uri.parse(
-          'https://fantastic-valkyrie-6f02c3.netlify.app/db/higiene.json'));
+      final response = await http.get(
+          Uri.parse('https://jsonmultiservice.netlify.app/db/higiene.json'));
       var prods = jsonDecode(utf8.decode(response.bodyBytes)) as List<dynamic>;
       //print(prods.length);
       return prods.map((e) => Producto.fromJson(e)).toList();
